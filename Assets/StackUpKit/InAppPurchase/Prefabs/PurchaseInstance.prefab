@@ -275,9 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24cbcb670b64e6d885c04853a72b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Non_Consumable_Products:
-  - ProductID: RemoveAds
-    GoogleStoreID: 
-    AppleStoreID: 
+  Non_Consumable_Products: []
   Consumable_Products: []
   Spinner: {fileID: 1489002782068779875}

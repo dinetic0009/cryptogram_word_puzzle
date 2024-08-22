@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-//using Google.Play.Review;
+using Google.Play.Review;
 using UnityEngine;
 
 public class InAppReviewManager : MonoBehaviour
@@ -38,23 +38,22 @@ public class InAppReviewManager : MonoBehaviour
 
     private IEnumerator AskForReviewCoroutine()
     {
-        yield return null;
-        //ReviewManager _reviewManager;
+        ReviewManager _reviewManager;
 
-        //_reviewManager = new ReviewManager();
-        //var requestFlowOperation = _reviewManager.RequestReviewFlow();
-        //yield return requestFlowOperation;
-        //if (requestFlowOperation.Error != ReviewErrorCode.NoError)
-        //{
-        //    yield break;
-        //}
-        //PlayReviewInfo _playReviewInfo = requestFlowOperation.GetResult();
-        //var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
-        //yield return launchFlowOperation;
-        //_playReviewInfo = null; // Reset the object
-        //if (launchFlowOperation.Error != ReviewErrorCode.NoError)
-        //{
-        //    yield break;
-        //}
+        _reviewManager = new ReviewManager();
+        var requestFlowOperation = _reviewManager.RequestReviewFlow();
+        yield return requestFlowOperation;
+        if (requestFlowOperation.Error != ReviewErrorCode.NoError)
+        {
+            yield break;
+        }
+        PlayReviewInfo _playReviewInfo = requestFlowOperation.GetResult();
+        var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
+        yield return launchFlowOperation;
+        _playReviewInfo = null; // Reset the object
+        if (launchFlowOperation.Error != ReviewErrorCode.NoError)
+        {
+            yield break;
+        }
     }
 }
