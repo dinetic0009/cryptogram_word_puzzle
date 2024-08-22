@@ -180,8 +180,8 @@ public class GameManager : Singleton<GameManager>
 
         for(int i = 0; i < _sameLetterGroups.Count; i++)
         {
-            var letter = _sameLetterGroups[i].letters;
-            List<Letter> _selectedLetters = letter.Count > 3 ? letter.Take((letter.Count * 75) / 100).ToList() : letter;
+            var _letters = _sameLetterGroups[i].letters;
+            List<Letter> _selectedLetters = _letters.Count > 3 ? _letters.Take((_letters.Count * 65) / 100).ToList() : _letters;
             selectedLetters.AddRangeIfNotNull(_selectedLetters);
 
             if (selectedLetters.Count >= preFilledCount)
@@ -194,6 +194,20 @@ public class GameManager : Singleton<GameManager>
             x.SetState(SlotState.Filled);
             OnSlotFilled(x);
         });
+
+        if(LevelManager.Instance.Level_No_UI < 5)
+        {
+            _sameLetterGroups.ForEach(x =>
+            {
+                if (!selectedLetters.Contains(x.letters[0]))
+                {
+                    var letter = x.letters.GetRandom();
+                    letter.SetState(SlotState.Filled);
+                    OnSlotFilled(letter);
+                }
+            });
+
+        }
 
         SetLockedSlots();
 
@@ -275,9 +289,9 @@ public class GameManager : Singleton<GameManager>
 
     internal void OnSlotFilled(Letter letter)
     {
-        var group = sameLetterGroups.Find(y => y.letters.Contains(letter));
+        var group = sameLetterGroups.Find(y => y.letters[0]._char == letter._char);
 
-        if (group.letters.Any(letter_ => letter_.IsEmpty || letter.IsLock || letter.IsDualLock))
+        if (group.letters.Any(x => x.IsEmpty || x.IsLock || x.IsDualLock))
             keyboard.HightlightKey(letter._char);
         else
             keyboard.DisableKey(letter._char);
@@ -472,6 +486,7 @@ public class Letter
     public void SetOneSideUnlock()
     {
         SetState(SlotState.Locked);
+        slot.Init(this);
     }
 
     public void SetState(SlotState state)

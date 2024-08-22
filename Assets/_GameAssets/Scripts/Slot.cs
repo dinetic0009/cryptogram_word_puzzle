@@ -61,7 +61,7 @@ public class Slot : MonoBehaviour
 
     void TryMatchLetter(char _char)
     {
-        textComponent.DOKill(true);
+        seq.Kill(true);
         textComponent.text = _char.ToString();
 
         if (char.ToLowerInvariant(letter._char) == char.ToLowerInvariant(_char))
@@ -85,13 +85,14 @@ public class Slot : MonoBehaviour
         GameManager.Instance.OnUpdate();
     }
 
+    Sequence seq;
     internal void On_FalseGuess()
     {
         SoundManager.Instance.PlaySfx(SoundType.Wrong);
         textComponent.color = red;
         MistakesController.Instance.OnMistake();
 
-        DOTween.Sequence()
+        seq = DOTween.Sequence()
             .AppendInterval(.4f)
             .Append(textComponent.DOFade(0, .5f))
             .AppendCallback(() => textComponent.text = "")
