@@ -20,12 +20,12 @@ MonoBehaviour:
     directedForChildrenRequired: 1
     testModeRequired: 1
     testDeviceRequired: 1
-    directedForChildren: 1
+    directedForChildren: 0
     consentPopupRequired: 0
     showConsentPopup: 0
     platformSettings:
     - platform: 0
-      enabled: 1
+      enabled: 0
       appId:
         id: ca-app-pub-3774337907915828~3265023901
         displayName: App ID
@@ -56,9 +56,9 @@ MonoBehaviour:
         required: 1
       testMode: 0
       testDevice: b23f0308-a6c1-457a-882c-2e8c43f8e637
-      debugGeography: 1
+      debugGeography: 0
     - platform: 1
-      enabled: 0
+      enabled: 1
       appId:
         id: 
         displayName: App ID
@@ -478,8 +478,8 @@ MonoBehaviour:
   debugMode: 0
   usePlaymaker: 0
   useUnityVisualScripting: 1
-  enableATT: 0
+  enableATT: 1
   nativePopupText: We will use your data to provide a better and personalized ad
     experience.
-  selectedAndroidAdvertiser: 20
-  selectediOSAdvertiser: 0
+  selectedAndroidAdvertiser: 0
+  selectediOSAdvertiser: 20

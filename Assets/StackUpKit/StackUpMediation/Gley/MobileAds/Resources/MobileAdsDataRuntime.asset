@@ -15,43 +15,6 @@ MonoBehaviour:
   consentCanvas: {fileID: 0}
   consentPopup: {fileID: 0}
   androidAdvertiser:
-    advertiser: 20
-    platformSettings:
-      platform: 0
-      enabled: 1
-      appId:
-        id: ca-app-pub-3774337907915828~3265023901
-        displayName: App ID
-        required: 1
-      idBanner:
-        id: ca-app-pub-3774337907915828/4997742129
-        displayName: Banner ID
-        required: 1
-      idMRec:
-        id: 
-        displayName: MRec ID
-        required: 1
-      idInterstitial:
-        id: ca-app-pub-3774337907915828/2371578781
-        displayName: Interstitial ID
-        required: 1
-      idRewarded:
-        id: ca-app-pub-3774337907915828/4231455365
-        displayName: Rewarded Video ID
-        required: 1
-      idRewardedInterstitial:
-        id: ca-app-pub-3774337907915828/9675353733
-        displayName: Rewarded Interstitial ID
-        required: 1
-      idOpenApp:
-        id: ca-app-pub-3774337907915828/5861664361
-        displayName: App Open ID
-        required: 1
-      testMode: 0
-      testDevice: b23f0308-a6c1-457a-882c-2e8c43f8e637
-      debugGeography: 1
-    directedForChildren: 1
-  iOSAdvertiser:
     advertiser: 0
     platformSettings:
       platform: 0
@@ -88,7 +51,44 @@ MonoBehaviour:
       testDevice: 
       debugGeography: 0
     directedForChildren: 0
+  iOSAdvertiser:
+    advertiser: 20
+    platformSettings:
+      platform: 1
+      enabled: 1
+      appId:
+        id: 
+        displayName: App ID
+        required: 1
+      idBanner:
+        id: 
+        displayName: Banner ID
+        required: 1
+      idMRec:
+        id: 
+        displayName: MRec ID
+        required: 1
+      idInterstitial:
+        id: 
+        displayName: Interstitial ID
+        required: 1
+      idRewarded:
+        id: 
+        displayName: Rewarded Video ID
+        required: 1
+      idRewardedInterstitial:
+        id: 
+        displayName: Rewarded Interstitial ID
+        required: 1
+      idOpenApp:
+        id: 
+        displayName: App Open ID
+        required: 1
+      testMode: 0
+      testDevice: 
+      debugGeography: 0
+    directedForChildren: 0
   debugMode: 0
-  enableATT: 0
+  enableATT: 1
   nativePopupText: We will use your data to provide a better and personalized ad
     experience.
