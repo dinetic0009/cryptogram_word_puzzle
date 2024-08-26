@@ -59,6 +59,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
@@ -275,6 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24cbcb670b64e6d885c04853a72b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Non_Consumable_Products: []
+  Non_Consumable_Products:
+  - ProductID: RemoveAds
+    GoogleStoreID: com.aam.games.cryptogram.removeads
+    AppleStoreID: com.aam.games.cryptogram.removeads
   Consumable_Products: []
   Spinner: {fileID: 1489002782068779875}

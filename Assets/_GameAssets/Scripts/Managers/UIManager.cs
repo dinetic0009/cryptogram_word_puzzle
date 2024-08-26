@@ -161,7 +161,7 @@ public class UIManager : Singleton<UIManager>
         winPanel_FinalQuote.text = $"{LevelManager.Instance.CurrenLevel.phrase.Trim()}";
         winPanel_FinalQuoteAuther.text = $"{LevelManager.Instance.CurrenLevel.autherName.Trim()}";
         JsonController.Instance.ResetData();
-
+        //AdsMediation.instance.ShowInterstial();
         LevelManager.Instance.CompleteLevel();
         SetPanels(GameState.Win);
     }
