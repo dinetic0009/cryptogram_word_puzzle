@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: GoogleMobileAdsSettings
   m_EditorClassIdentifier: 
   adMobAndroidAppId: 
-  adMobIOSAppId: ca-app-pub-6350033448157142~3069483177
-  delayAppMeasurementInit: 0
+  adMobIOSAppId: ca-app-pub-8451768180038920~3053246856
+  delayAppMeasurementInit: 1
   enableKotlinXCoroutinesPackagingOption: 1
-  optimizeInitialization: 0
-  optimizeAdLoading: 0
-  userTrackingUsageDescription: 
+  optimizeInitialization: 1
+  optimizeAdLoading: 1
+  userTrackingUsageDescription: We will use your data to provide a better and personalized
+    ad experience.
   validateGradleDependencies: 0
