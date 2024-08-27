@@ -114,7 +114,7 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         PlayerPrefs.SetInt("LevelInProgress", _levelNoInProgess);
-        AdsMediation.instance.ShowInterstial();
+        Utils.WaitAndPerform(.1f, () => AdsMediation.instance.ShowInterstial());
 
     }//CompleteLevel
 
