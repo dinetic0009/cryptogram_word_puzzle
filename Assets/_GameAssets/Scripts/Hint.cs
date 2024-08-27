@@ -52,12 +52,12 @@ public class Hint : Singleton<Hint>
         {
             hintCount--;
             PlayerPrefs.SetInt("HintCount", hintCount);
-            GrantHint();
+            PerformHint();
         }
         else
         {
 #if UNITY_EDITOR
-            GrantHint();
+            GrantHints(1);
 #else
             if (AdsMediation.instance.IsRewardedVideoReadyForAnyNetwork())
             {
@@ -73,16 +73,17 @@ public class Hint : Singleton<Hint>
     {
         if(isCompleted)
         {
-            GrantHint();
+            GrantHints(1);
         }
 
         AdsMediation.rewardCallBack -= OnReward_Hint;
     }
 
-    void GrantHint()
+    void PerformHint()
     {
         SetVisuals();
         btn.interactable = false;
+        //Keyboard.Instance.SetInteractable(false);
         Hint_ShowHint?.Invoke();
     }
 
@@ -90,6 +91,7 @@ public class Hint : Singleton<Hint>
     public void EnableHintBtn()
     {
         btn.interactable = true;
+        //Keyboard.Instance.SetInteractable(true);
     }
 
 }//Class
