@@ -105,6 +105,7 @@ public class Slot : MonoBehaviour
         {
             GameManager.Instance.SetHightLightAll = false;
             SetHighlight(false);
+            Hint.Instance.EnableHintBtn();
             TryMatchLetter(letter._char);
             return;
         }

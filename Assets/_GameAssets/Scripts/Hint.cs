@@ -82,8 +82,14 @@ public class Hint : Singleton<Hint>
     void GrantHint()
     {
         SetVisuals();
+        btn.interactable = false;
         Hint_ShowHint?.Invoke();
     }
 
+
+    public void EnableHintBtn()
+    {
+        btn.interactable = true;
+    }
 
 }//Class

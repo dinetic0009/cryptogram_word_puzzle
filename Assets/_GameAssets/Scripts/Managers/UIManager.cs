@@ -130,14 +130,16 @@ public class UIManager : Singleton<UIManager>
     public void On_Home(Animations animation)
     {
         OnClick_Sfx();
-        animation.Reset();
+        //animation.Reset();
+        gamePausePanel.SetActive(false);
         SetPanels(GameState.Home);
     }
 
     public void On_PauseSettings(Animations animation)
     {
         OnClick_Sfx();
-        animation.Reset();
+        gamePausePanel.SetActive(false);
+        //animation.Reset();
         settingsPanel.SetActive(true);
     }
 

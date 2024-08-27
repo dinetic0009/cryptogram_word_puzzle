@@ -24,7 +24,7 @@ public class RateGame : MonoBehaviour
             UnityEngine.iOS.Device.RequestStoreReview();
 
 #elif UNITY_ANDROID
-            InAppReviewManager.Instance.AskForReview();
+            //InAppReviewManager.Instance.AskForReview();
 #else
 
 #endif
