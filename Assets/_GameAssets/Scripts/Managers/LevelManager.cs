@@ -38,9 +38,14 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
-        _levels = Resources.LoadAll<LevelSO>("_GameResources/Levels")
+        _levels = new();
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_1")
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
-                    .ToList();
+                    .ToList());
+
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Levels")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
 
         _currenLevelNo = PlayerPrefs.GetInt("Level", 1);
         _levelIndex = PlayerPrefs.GetInt("LevelIndex", 0);
