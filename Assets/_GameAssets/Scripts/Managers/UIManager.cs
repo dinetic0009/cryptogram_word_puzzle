@@ -76,7 +76,7 @@ public class UIManager : Singleton<UIManager>
             SoundManager.Instance.PlaySfx(SoundType.Click);
     }
 
-/////////////////////////////////////////// OnClick Listners ////////////////////////////////////////////////////
+    /////////////////////////////////////////// OnClick Listners ////////////////////////////////////////////////////
 
     public void On_Play()
     {
@@ -107,7 +107,7 @@ public class UIManager : Singleton<UIManager>
 
     void OnReward_GrantRevive(bool isCompleted)
     {
-        if(isCompleted)
+        if (isCompleted)
         {
             GrantRevive();
         }
@@ -155,6 +155,8 @@ public class UIManager : Singleton<UIManager>
     {
         //SoundManager.Instance.PlaySfx(SoundType.Lose);
         SetPanels(GameState.Lose);
+        GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Fail, LevelManager.Instance.LEVEL_IN_PROGRESS + "");
+
     }
 
     public void SetWinPanel()
@@ -168,7 +170,7 @@ public class UIManager : Singleton<UIManager>
         SetPanels(GameState.Win);
     }
 
-/////////////////////////////////////////// Setting Panel  ////////////////////////////////////////////////////
+    /////////////////////////////////////////// Setting Panel  ////////////////////////////////////////////////////
 
     public void On_SoundToggle(bool isOn)
     {
@@ -206,7 +208,7 @@ public class UIManager : Singleton<UIManager>
         OnClick_Sfx();
         Purchaser.instance.NonConsumableAction += OnPurchase_Ads;
         Purchaser.instance.BuyNonConsumableProduct("RemoveAds");
-        
+
     }
 
     void OnPurchase_Ads(NonConsumable product, bool isPurchased)

@@ -69,6 +69,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         Keyboard.Instance.Init();
         OnLevelInit?.Invoke(_currentLevel);
+        GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Start, _levelNoInProgess + "");
     }
 
     private void Init(int levelIndex)
@@ -99,6 +100,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public void CompleteLevel()
     {
+        GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Complete, _levelNoInProgess + "");
+
         PlayerPrefs.SetInt("Level", ++_currenLevelNo);
 
         if (_currenLevelNo <= (_levels.Count + 1))
