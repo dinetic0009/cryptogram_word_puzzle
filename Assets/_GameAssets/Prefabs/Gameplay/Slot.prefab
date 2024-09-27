@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1725319450239707440}
   - component: {fileID: 5215957904894145328}
   - component: {fileID: 5124593566659567218}
+  - component: {fileID: 5586605040214573501}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88951593ab7f24b7eb5d19b87f8c8891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 5586605040214573501}
   _image: {fileID: 1725319450239707440}
   _lock: {fileID: 3699876749344321567}
   textComponent: {fileID: 6026336166123210536}
@@ -151,6 +153,27 @@ MonoBehaviour:
   green: {r: 0.43921572, g: 0.8862746, b: 0.40784317, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   _button: {fileID: 5215957904894145328}
+--- !u!95 &5586605040214573501
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725319450239707406}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6682d772a0754217a0b67eea1f94625, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3887521222871257267
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,15 +512,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.21960784
+      value: 0.28627452
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.21960784
+      value: 0.2784314
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.21960784
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontSizeBase
@@ -509,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4281874488
+      value: 4282992454
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -521,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_RootOrder
@@ -597,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.3499756
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -610,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922513790857657358, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657359, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_Name

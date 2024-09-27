@@ -42,10 +42,10 @@ public class Keyboard : Singleton<Keyboard>
             k.HightLight();
     }
 
-    public void DisableKey(char _char)
+    public void DisableKey(char _char, bool canAnimate)
     {
         if (GetKey(_char, out Key k))
-            k.SetDisabled();
+            k.SetDisabled(canAnimate);
     }
 
     public void SetInteractable(bool isInteractable)
@@ -88,6 +88,7 @@ public class Keyboard : Singleton<Keyboard>
             SoundManager.Instance.PlaySfx(SoundType.Keyboard);
             GameManager.Instance.ToNextSlot();
         });
+
         NextKey = rightKey;
 
     }

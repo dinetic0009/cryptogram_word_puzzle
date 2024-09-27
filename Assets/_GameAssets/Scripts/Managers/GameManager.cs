@@ -12,7 +12,6 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField, ReadOnly, TextArea] string phrase;
 
-
     [Header("")]
     [SerializeField] Slot slotPrefab;
     [SerializeField] Keyboard keyboard;
@@ -30,11 +29,16 @@ public class GameManager : Singleton<GameManager>
     internal string _phrase;
     readonly int maxLineLength = 15;
 
-    public bool SetHightLightAll { set => allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(value)); }
+    //public bool SetHightLightAll { set => allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(value)); }
+
+    public void SetHightLightAll(bool highlighted)
+    {
+        allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(highlighted));
+    }
 
     private void OnEnable()
     {
-        Hint.Hint_ShowHint += () => SetHightLightAll = true;
+        //Hint.Hint_ShowHint += () => SetHightLightAll(true);
         LevelManager.OnLevelInit += SetLevel;
     }
 
@@ -287,14 +291,19 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    internal void OnSlotFilled(Letter letter)
+    internal void OnSlotFilled(Letter letter, bool canAnimate = false)
     {
         var group = sameLetterGroups.Find(y => y.letters[0]._char == letter._char);
 
         if (group.letters.Any(x => x.IsEmpty || x.IsLock || x.IsDualLock))
+        {
             keyboard.HightlightKey(letter._char);
+        }
         else
-            keyboard.DisableKey(letter._char);
+        {
+            group.letters.ForEach(x => x.slot.SetTriggerCorrect());
+            keyboard.DisableKey(letter._char, canAnimate);
+        }
 
         CheckToUnlock(letter);
     }
@@ -343,7 +352,7 @@ public class GameManager : Singleton<GameManager>
         if (nextSlot == null)
         {
             Debug.Log("<color=green>LevelCompleted!</color>");
-            UIManager.Instance.SetWinPanel();
+            Utils.WaitAndPerform(1f, () => UIManager.Instance.SetWinPanel());
             return;
         }
 
@@ -424,7 +433,7 @@ public class GameManager : Singleton<GameManager>
     
     private void OnDisable()
     {
-        Hint.Hint_ShowHint -= () => SetHightLightAll = true;
+        //Hint.Hint_ShowHint -= () => SetHightLightAll(true);
     }
 
 

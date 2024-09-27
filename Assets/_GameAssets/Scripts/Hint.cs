@@ -84,7 +84,8 @@ public class Hint : Singleton<Hint>
         SetVisuals();
         btn.interactable = false;
         //Keyboard.Instance.SetInteractable(false);
-        Hint_ShowHint?.Invoke();
+        GameManager.Instance.SetHightLightAll(true);
+        //Hint_ShowHint?.Invoke();
     }
 
 

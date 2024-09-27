@@ -37,14 +37,15 @@ public class MistakesController : Singleton<MistakesController>
         for(int i = 0; i < mistakesCount; i++)
         {
             var cross = Instantiate(crossPrefab, crossParent);
-            cross.sprite = whiteCross;
+            //cross.sprite = whiteCross;
             crossList.Add(cross);
         }
     }
 
     internal void OnMistake()
     {
-        crossList[mistakeIndex].sprite = redCross;
+        //crossList[mistakeIndex].sprite = redCross;
+        crossList[mistakeIndex].transform.GetChild(0).gameObject.SetActive(true);
         mistakeIndex++;
 
         if(mistakeIndex == mistakesCount)
@@ -56,7 +57,6 @@ public class MistakesController : Singleton<MistakesController>
     internal void OnGameOver()
     {
         Debug.Log("<color=red>GameOver</color>");
-        //GameManager.Instance.SetInteractable(false);
         Keyboard.Instance.SetInteractable(false);
         UIManager.Instance.SetLosePanel();
     }
@@ -65,8 +65,7 @@ public class MistakesController : Singleton<MistakesController>
     [ButtonMethod]
     internal void OnRevive()
     {
-        crossList.ForEach(x => x.sprite = whiteCross);
-        mistakeIndex = 0;
+        SetUI();
         Keyboard.Instance.SetInteractable(true);
     }
 

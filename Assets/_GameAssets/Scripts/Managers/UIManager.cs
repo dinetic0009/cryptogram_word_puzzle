@@ -130,16 +130,16 @@ public class UIManager : Singleton<UIManager>
     public void On_Home(Animations animation)
     {
         OnClick_Sfx();
-        //animation.Reset();
-        gamePausePanel.SetActive(false);
+        animation.Reset();
+        //gamePausePanel.SetActive(false);
         SetPanels(GameState.Home);
     }
 
     public void On_PauseSettings(Animations animation)
     {
         OnClick_Sfx();
-        gamePausePanel.SetActive(false);
-        //animation.Reset();
+        //gamePausePanel.SetActive(false);
+        animation.Reset();
         settingsPanel.SetActive(true);
     }
 
@@ -162,12 +162,41 @@ public class UIManager : Singleton<UIManager>
     public void SetWinPanel()
     {
         SoundManager.Instance.PlaySfx(SoundType.Win);
-        winPanel_FinalQuote.text = $"{LevelManager.Instance.CurrenLevel.phrase.Trim()}";
-        winPanel_FinalQuoteAuther.text = $"{LevelManager.Instance.CurrenLevel.autherName.Trim()}";
+        StartCoroutine(DisplayWords());
+
         JsonController.Instance.ResetData();
-        //AdsMediation.instance.ShowInterstial();
         LevelManager.Instance.CompleteLevel();
         SetPanels(GameState.Win);
+    }
+
+    IEnumerator DisplayWords()
+    {
+        winPanel_FinalQuote.text = "";
+        winPanel_FinalQuoteAuther.text = "";
+
+
+        yield return new WaitForSeconds(.5f);
+
+        var quote = $"\"{LevelManager.Instance.CurrenLevel.phrase.Trim()}\"";
+        var autherName = $"\'{LevelManager.Instance.CurrenLevel.autherName.Trim()}\'";
+
+        //string[] words = quote.Split(' ');
+        float delay = .05f;
+
+        for (int i = 0; i < quote.Length; i++)
+        {
+            winPanel_FinalQuote.text += quote[i];//words[i] + " ";
+            yield return new WaitForSeconds(delay);
+        }
+
+        //words = autherName.Split(' ');
+
+        for (int i = 0; i < autherName.Length; i++)
+        {
+            winPanel_FinalQuoteAuther.text += autherName[i]; //words[i] + " ";
+            yield return new WaitForSeconds(delay);
+        }
+
     }
 
     /////////////////////////////////////////// Setting Panel  ////////////////////////////////////////////////////

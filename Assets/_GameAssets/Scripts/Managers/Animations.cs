@@ -25,15 +25,6 @@ public class Animations : MonoBehaviour
         if (TryGetComponent(out rectTr))
             rectPosition = rectTr.anchoredPosition;
 
-        if (_Type == AnimationType.Bird)
-        {
-            Image image = GetComponent<Image>();
-            RectTransform canvasRect = image.canvas.GetComponent<RectTransform>();
-            RectTransform imageRect = image.GetComponent<RectTransform>();
-            birdStartPosition = GetComponent<RectTransform>().anchoredPosition = new Vector2(-canvasRect.rect.width / 2 - imageRect.rect.width / 2, rectPosition.y + (Random.Range(-3, 1) * imageRect.rect.height / 2));
-            birdEndPos = canvasRect.rect.width / 2.5f + imageRect.rect.width;
-        }
-
         scale = transform.localScale.x;
     }
 
@@ -48,32 +39,6 @@ public class Animations : MonoBehaviour
 
                 seq.Append(transform.DOScale(1, .35f).SetEase(Ease.Linear));
                 seq.Join(transform.DOLocalMove(Vector3.zero, .35f).SetEase(Ease.Linear));
-                break;
-
-            case AnimationType.Splash:
-                float splashTime = Random.Range(2.2f, 3f);
-                var slider = GetComponentInChildren<Slider>();
-                var text = GetComponentInChildren<TMPro.TextMeshProUGUI>();
-
-                seq.OnStart(() => { slider.value = 0; text.text = "Loading"; });
-                seq.Append(slider.DOValue(1, splashTime));
-                //seq.OnComplete(() => UIManager.Instance.SetHomePanle());
-
-                seq.InsertCallback((splashTime / 4), () => text.text = "Loading.");
-                seq.InsertCallback((splashTime / 4) * 2, () => text.text = "Loading..");
-                seq.InsertCallback((splashTime / 4) * 3, () => text.text = "Loading...");
-
-                break;
-
-            case AnimationType.Bird:
-                StartCoroutine(AnimateBird());
-                break;
-
-            case AnimationType.Eyes:
-
-                seq.Append(transform.DOLocalMoveY(-3f, .2f).SetLoops(2, LoopType.Yoyo).SetRelative(true));
-                seq.AppendInterval(Random.Range(2f, 3.5f));
-                seq.SetLoops(-1, LoopType.Restart);
                 break;
 
             case AnimationType.Toast:
@@ -95,24 +60,82 @@ public class Animations : MonoBehaviour
                 seq.SetLoops(-1, LoopType.Restart);
                 break;
 
+            case AnimationType.CompleteLogo:
+
+                transform.GetChilds(out List<Transform> childs);
+                childs.Shuffle();
+                childs.ForEach(x => {
+
+                    DOTween.Sequence()
+                    .Append(x.DOMoveY(-6f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .AppendInterval(.2f)
+                    .SetLoops(-1, LoopType.Restart);
+                });
+                break;
+
+            case AnimationType.HomeLogo:
+                StartCoroutine(HomeLogo());
+                break;
 
         }
     }
 
-    IEnumerator AnimateBird()
+    //[SerializeField, ConditionalField(nameof(_Type), false ,AnimationType.HomeLogo, order = 1)] float changeWait, nextLetterWait;
+
+    readonly List<char> list = new() { 'c', 'r', 'y', 'p', 't', 'o' };
+    readonly List<int> counts = new() { 5, 6, 3, 6, 4, 3};
+
+    IEnumerator HomeLogo()
     {
+        yield return new WaitForSeconds(.1f);
+        transform.GetChilds(out List<Transform> slots);
+
+        slots.ForEach((x,i) => {
+
+            DOTween.Sequence()
+            .OnStart(() => x.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{GetRandomLetter(list[i])}")
+            .Append(x.DOMoveY(-9f, .8f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
+            .AppendInterval(.2f)
+            .SetLoops(-1, LoopType.Restart);
+        });
+
+
+        for(int i = 0; i< slots.Count; i++)
+        {
+            int _i = i;
+            var letter = list[_i];
+
+            for (int j = 0; j < counts[_i]; j++)
+            {
+                var _letter = GetRandomLetter(letter);
+                slots[_i].GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{_letter}";
+                yield return new WaitForSeconds(.2f);
+            }
+
+            letter = _i == 0 ? char.ToUpper(letter) : char.ToLower(letter);
+            slots[_i].GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = letter.ToString();
+            yield return new WaitForSeconds(.3f);
+        }
+
+    }
+
+    private  char lastLetter = '0';
+    char GetRandomLetter(char targetLetter)
+    {
+        char randomLetter = (char)Random.Range('a', 'z' + 1);
+
         while (true)
         {
-            if (!transform.parent.gameObject.activeSelf)
-                yield break;
+            if(randomLetter != lastLetter && randomLetter != targetLetter)
+                break;
 
-            rectTr.anchoredPosition = birdStartPosition;
-            yield return new WaitForSeconds(Random.Range(2f, 3.8f));
-
-            rectTr.DOAnchorPosX(birdEndPos, 4f).SetEase(Ease.Linear);
-            yield return new WaitForSeconds(4f);
+            randomLetter = (char)Random.Range('a', 'z' + 1);
         }
+
+        lastLetter = randomLetter;
+        return randomLetter;
     }
+
 
     public void Reset()
     {
@@ -129,15 +152,7 @@ public class Animations : MonoBehaviour
             .OnComplete(() => transform.parent.GameObjectSetActive(false));
     }
 
-    private void OnDestroy()
-    {
-        if (_Type is AnimationType.Bird or AnimationType.Spiral)
-        {
-            seq.Kill(false);
-            DOTween.Kill(transform.gameObject);
-        }
-
-    }
+    
 }
 
 
@@ -146,7 +161,6 @@ public enum AnimationType
     BG,
     Spiral,
     Toast,
-    Bird,
-    Splash,
-    Eyes
+    CompleteLogo,
+    HomeLogo
 }

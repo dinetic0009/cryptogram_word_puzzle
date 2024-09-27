@@ -40,7 +40,22 @@ public class Key : MonoBehaviour
         textComponent.color = highlightColor;
     }
 
-    public void SetDisabled()
+    public void SetDisabled(bool canAnimate)
+    {
+        if (canAnimate)
+        {
+            textComponent.color = highlightColor;
+            textComponent.DOScale(1f, .5f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                DisableKey();
+            });
+        }
+        else
+        {
+            DisableKey();
+        }
+    }
+    private void DisableKey()
     {
         btn.interactable = false;
         image.sprite = disabledSp;

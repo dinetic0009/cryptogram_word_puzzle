@@ -83,6 +83,14 @@ public static class Extension
         });
     }
 
+    public static void GetChilds(this Transform parent, out List<Transform> childs)
+    {
+        childs = new();
+        foreach (Transform child in parent)
+            if (child.parent == parent)
+                childs.Add(child);
+    }
+
     public static void SetAnchorPreset(this RectTransform rectTransform, AnchorPreset anchorPreset)
     {
         switch (anchorPreset)

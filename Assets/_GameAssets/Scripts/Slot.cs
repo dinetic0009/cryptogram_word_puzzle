@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class Slot : MonoBehaviour
 {
+    [SerializeField] Animator _animator;
     [SerializeField] Image _image, _lock;
     [SerializeField] TextMeshProUGUI textComponent, codeTextComponent;
 
@@ -23,6 +24,9 @@ public class Slot : MonoBehaviour
 
     public bool IsInteractable { get => _button.IsInteractable(); set => _button.interactable = value; }
     internal Letter letter;
+
+    readonly string CORRECT_KEY = "Correct";
+    readonly string WRONG_KEY = "Wrong";
 
     static public Slot selectedSlot;
 
@@ -70,6 +74,12 @@ public class Slot : MonoBehaviour
             On_FalseGuess();
     }
 
+    public void SetTriggerCorrect()
+    {
+        Debug.Log("CorrectTriggered");
+        _animator.SetTrigger(CORRECT_KEY);
+    }
+
     internal void On_KeyPress(Key key)
     {
         TryMatchLetter(key.Char);
@@ -77,11 +87,12 @@ public class Slot : MonoBehaviour
 
     internal void On_TrueGuess()
     {
+        SetTriggerCorrect();
         SoundManager.Instance.PlaySfx(SoundType.Correct);
         letter.state = SlotState.Filled;
         textComponent.color = Color.black;
         IsInteractable = false;
-        GameManager.Instance.OnSlotFilled(letter);
+        GameManager.Instance.OnSlotFilled(letter, true);
         GameManager.Instance.OnUpdate();
     }
 
@@ -93,7 +104,7 @@ public class Slot : MonoBehaviour
         MistakesController.Instance.OnMistake();
 
         seq = DOTween.Sequence()
-            .AppendInterval(.4f)
+            .AppendInterval(.6f)
             .Append(textComponent.DOFade(0, .5f))
             .AppendCallback(() => textComponent.text = "")
             .Append(textComponent.DOFade(1, 0));
@@ -103,7 +114,7 @@ public class Slot : MonoBehaviour
     {
         if (isHighlighted)
         {
-            GameManager.Instance.SetHightLightAll = false;
+            GameManager.Instance.SetHightLightAll(false);
             SetHighlight(false);
             Hint.Instance.EnableHintBtn();
             TryMatchLetter(letter._char);
