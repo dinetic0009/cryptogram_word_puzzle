@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using MyBox;
+using System;
 
 public class MistakesController : Singleton<MistakesController>
 {
@@ -16,6 +17,8 @@ public class MistakesController : Singleton<MistakesController>
     private List<Image> crossList;
     readonly int mistakesCount = 3;
     private int mistakeIndex = 0;
+
+    public static Action TutorialController_ShowMistakesTutorial;
 
     private void OnEnable()
     {
@@ -47,6 +50,7 @@ public class MistakesController : Singleton<MistakesController>
         //crossList[mistakeIndex].sprite = redCross;
         crossList[mistakeIndex].transform.GetChild(0).gameObject.SetActive(true);
         mistakeIndex++;
+        TutorialController_ShowMistakesTutorial?.Invoke();
 
         if(mistakeIndex == mistakesCount)
         {

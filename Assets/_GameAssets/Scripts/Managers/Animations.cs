@@ -12,6 +12,8 @@ public class Animations : MonoBehaviour
 {
     public AnimationType _Type;
 
+    [SerializeField, ConditionalField(nameof(_Type), false, AnimationType.HomeLogo, order = 1)] Color highlightedColor;
+
     Vector3 localPosition;
     Vector3 birdStartPosition;
     Vector2 rectPosition;
@@ -67,7 +69,21 @@ public class Animations : MonoBehaviour
                 childs.ForEach(x => {
 
                     DOTween.Sequence()
-                    .Append(x.DOMoveY(-6f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .Append(x.DOMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .AppendInterval(.2f)
+                    .SetLoops(-1, LoopType.Restart);
+                });
+                break;
+
+            case AnimationType.NoAds:
+
+                transform.GetChilds(out List<Transform> _childs);
+                _childs.Shuffle();
+                _childs.ForEach((x,i) => {
+
+                    DOTween.Sequence()
+                    .SetDelay(1f)
+                    .Append(x.DOLocalMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
                     .AppendInterval(.2f)
                     .SetLoops(-1, LoopType.Restart);
                 });
@@ -87,6 +103,7 @@ public class Animations : MonoBehaviour
 
     IEnumerator HomeLogo()
     {
+        LevelManager.Instance.SetLevelRoad();
         yield return new WaitForSeconds(.1f);
         transform.GetChilds(out List<Transform> slots);
 
@@ -104,17 +121,21 @@ public class Animations : MonoBehaviour
         {
             int _i = i;
             var letter = list[_i];
+            var textComponent = slots[_i].GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+            var prevColor = textComponent.color;
+            textComponent.color = highlightedColor;
 
             for (int j = 0; j < counts[_i]; j++)
             {
                 var _letter = GetRandomLetter(letter);
-                slots[_i].GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{_letter}";
+                textComponent.text = $"{_letter}";
                 yield return new WaitForSeconds(.2f);
             }
 
             letter = _i == 0 ? char.ToUpper(letter) : char.ToLower(letter);
             slots[_i].GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = letter.ToString();
             yield return new WaitForSeconds(.3f);
+            textComponent.color = prevColor;
         }
 
     }
@@ -162,5 +183,6 @@ public enum AnimationType
     Spiral,
     Toast,
     CompleteLogo,
-    HomeLogo
+    HomeLogo,
+    NoAds
 }

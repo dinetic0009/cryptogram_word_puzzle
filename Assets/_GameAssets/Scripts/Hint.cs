@@ -27,6 +27,11 @@ public class Hint : Singleton<Hint>
         btn.onClick.AddListener(delegate { On_ConsumeHint(onAd); });
     }
 
+    internal void Click()
+    {
+        btn.onClick?.Invoke();
+    }
+
     internal void GrantHints(int count)
     {
         hintCount += count;

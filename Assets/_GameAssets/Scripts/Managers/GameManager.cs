@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Keyboard keyboard;
     [SerializeField] GameObject linePrefab;
     [SerializeField] Transform lineParent;
+    [SerializeField] GameObject interactableMaskOb;
 
 
     [Header("")]
@@ -28,6 +29,7 @@ public class GameManager : Singleton<GameManager>
     LevelSO level;
     internal string _phrase;
     readonly int maxLineLength = 15;
+    public static Action TutorialController_ShowTutorial;
 
     //public bool SetHightLightAll { set => allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(value)); }
 
@@ -36,9 +38,13 @@ public class GameManager : Singleton<GameManager>
         allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(highlighted));
     }
 
+    public void SetInteractable(bool isInternactabe)
+    {
+        interactableMaskOb.SetActive(!isInternactabe);
+    }
+
     private void OnEnable()
     {
-        //Hint.Hint_ShowHint += () => SetHightLightAll(true);
         LevelManager.OnLevelInit += SetLevel;
     }
 
@@ -58,13 +64,13 @@ public class GameManager : Singleton<GameManager>
         Slot.selectedSlot = null;
         lineParent.ClearChilds();
 
-        for(int i = 0; i< lines.Count; i++)
+        for (int i = 0; i < lines.Count; i++)
         {
             var _line = Instantiate(linePrefab, lineParent);
             _line.transform.ClearChilds();
             var word = new Word();
 
-            for(int j = 0; j< lines[i].Length; j++)
+            for (int j = 0; j < lines[i].Length; j++)
             {
                 var letter = lines[i][j];
 
@@ -95,14 +101,18 @@ public class GameManager : Singleton<GameManager>
 
         words.Shuffle();
         words = words.OrderByDescending(x => x.letters.Count).ToList();
-        allSlots.ForEach((x, i) => x.SetNeighbors(i <= 0 ? null : allSlots[i - 1], (i >= allSlots.Count -1) ? null : allSlots[i + 1], i));
+        allSlots.ForEach((x, i) => x.SetNeighbors(i <= 0 ? null : allSlots[i - 1], (i >= allSlots.Count - 1) ? null : allSlots[i + 1], i));
         InitGroups();
 
         SetStates();
 
         allSlots.ForEach((x, i) => x.Init());
         lineParent.GetComponentInParent<ScrollRect>().normalizedPosition = new(0, 1);
-        OnUpdate();
+
+        if(!TutorialController.Instance.CanShowTutorial)
+            OnUpdate();
+
+        Utils.WaitAndPerform(1.2f, () => TutorialController_ShowTutorial?.Invoke());
     }
 
     int GetCode(char letter)
@@ -174,7 +184,7 @@ public class GameManager : Singleton<GameManager>
 
         var totalCount = allSlots.Where(x => !x.IsSpace).ToList().Count;
         var preFilledCount = (level.visibilityPercentage * totalCount) / 100;
-        Debug.Log($"{level.visibilityPercentage}% of {totalCount} = {preFilledCount}");
+        //Debug.Log($"{level.visibilityPercentage}% of {totalCount} = {preFilledCount}");
 
         var _sameLetterGroups = sameLetterGroups.Copy();
         if (level.visibilityPercentage > 50)
@@ -302,6 +312,7 @@ public class GameManager : Singleton<GameManager>
         else
         {
             group.letters.ForEach(x => x.slot.SetTriggerCorrect());
+            Utils.WaitAndPerform(1f, () => group.letters.ForEach(x => x.slot.HideCode()));
             keyboard.DisableKey(letter._char, canAnimate);
         }
 
@@ -430,12 +441,10 @@ public class GameManager : Singleton<GameManager>
 
     }//Split
 
-    
     private void OnDisable()
     {
-        //Hint.Hint_ShowHint -= () => SetHightLightAll(true);
+        LevelManager.OnLevelInit -= SetLevel;
     }
-
 
 }//Class
 

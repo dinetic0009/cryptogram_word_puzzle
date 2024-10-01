@@ -8,7 +8,7 @@ using DG.Tweening;
 public class Slot : MonoBehaviour
 {
     [SerializeField] Animator _animator;
-    [SerializeField] Image _image, _lock;
+    public Image _image, _lock;
     [SerializeField] TextMeshProUGUI textComponent, codeTextComponent;
 
     [SerializeField] Sprite normalSp, hightlightSp;
@@ -20,7 +20,7 @@ public class Slot : MonoBehaviour
     [SerializeField] Color green;
     [SerializeField] Color transparent;
 
-    [SerializeField] Button _button;
+    public Button _button;
 
     public bool IsInteractable { get => _button.IsInteractable(); set => _button.interactable = value; }
     internal Letter letter;
@@ -55,6 +55,11 @@ public class Slot : MonoBehaviour
         });
     }
 
+    internal void Click()
+    {
+        _button.onClick?.Invoke();
+    }
+
     bool isHighlighted = false;
     internal void SetHighlight(bool hightlight)
     {
@@ -76,7 +81,6 @@ public class Slot : MonoBehaviour
 
     public void SetTriggerCorrect()
     {
-        Debug.Log("CorrectTriggered");
         _animator.SetTrigger(CORRECT_KEY);
     }
 
@@ -118,6 +122,7 @@ public class Slot : MonoBehaviour
             SetHighlight(false);
             Hint.Instance.EnableHintBtn();
             TryMatchLetter(letter._char);
+            TutorialController.Instance.CompleteHintTutorial();
             return;
         }
 
@@ -138,6 +143,11 @@ public class Slot : MonoBehaviour
     {
         _image.color = white;
         selectedSlot = null;
+    }
+
+    internal void HideCode()
+    {
+        codeTextComponent.gameObject.SetActive(false);
     }
 
 

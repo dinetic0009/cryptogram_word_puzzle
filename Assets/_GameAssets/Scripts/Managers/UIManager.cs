@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using MyBox;
 using TMPro;
+using System;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
 
@@ -27,9 +28,11 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] TextMeshProUGUI winPanel_FinalQuote;
     [SerializeField] TextMeshProUGUI winPanel_FinalQuoteAuther;
 
+    [Header("Gameplay Colors")]
+    [SerializeField] List<Color> gameplayColors;
+
     bool canPlayAud = false;
     public static GameState gameState;
-
 
     private void OnEnable()
     {
@@ -63,6 +66,11 @@ public class UIManager : Singleton<UIManager>
     internal void SetPanels(GameState gameState)
     {
         UIManager.gameState = gameState;
+
+        if(gameState is GameState.Gameplay)
+        {
+            gameplayPanel.transform.GetChild(0).GetComponent<Image>().color = gameplayColors.GetRandom();
+        }
 
         homePanel.SetActive(gameState is GameState.Home);
         gamePausePanel.SetActive(gameState is GameState.Puase);
@@ -178,7 +186,7 @@ public class UIManager : Singleton<UIManager>
         yield return new WaitForSeconds(.5f);
 
         var quote = $"\"{LevelManager.Instance.CurrenLevel.phrase.Trim()}\"";
-        var autherName = $"\'{LevelManager.Instance.CurrenLevel.autherName.Trim()}\'";
+        var autherName = $"-{LevelManager.Instance.CurrenLevel.autherName.Trim()}";
 
         //string[] words = quote.Split(' ');
         float delay = .05f;

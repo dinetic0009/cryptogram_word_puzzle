@@ -121,6 +121,7 @@ public class LevelManager : Singleton<LevelManager>
             _levelNoInProgess = nextLevel;
         }
 
+        showCompleteAnimation = true;
         PlayerPrefs.SetInt("LevelInProgress", _levelNoInProgess);
         AdsMediation.instance.ShowInterstial();
 

@@ -40,6 +40,11 @@ public class Key : MonoBehaviour
         textComponent.color = highlightColor;
     }
 
+    internal bool IsHighlighted()
+    {
+        return textComponent.color == highlightColor;
+    }
+
     public void SetDisabled(bool canAnimate)
     {
         if (canAnimate)
@@ -67,6 +72,11 @@ public class Key : MonoBehaviour
         btn.interactable = true;
         image.sprite = normalSp;
         textComponent.color = idleColor;
+    }
+
+    internal void Click()
+    {
+        btn.onClick?.Invoke();
     }
 
     void On_Click()
