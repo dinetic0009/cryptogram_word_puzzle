@@ -25,7 +25,7 @@ public class GAMaxIntegration
         MaxImpressionData data = new MaxImpressionData();
         data.country = MaxSdk.GetSdkConfiguration().CountryCode;
         data.network_name = adInfo.NetworkName;
-        data.adunit_id =  adInfo.AdUnitIdentifier;
+        data.adunit_id = adInfo.AdUnitIdentifier;
         data.adunit_format = format;
         data.placement = adInfo.Placement;
         data.creative_id = adInfo.CreativeIdentifier;
@@ -47,7 +47,7 @@ public class GAMaxIntegration
         MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("INTER", adInfo, callback);
         MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("BANNER", adInfo, callback);
         MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("REWARDED", adInfo, callback);
-        MaxSdkCallbacks.CrossPromo.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("XPROMO", adInfo, callback);
+        //MaxSdkCallbacks.CrossPromo.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("XPROMO", adInfo, callback);
         MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("MREC", adInfo, callback);
         MaxSdkCallbacks.RewardedInterstitial.OnAdRevenuePaidEvent += (adUnitId, adInfo) => runCallback("REWARDED_INTER", adInfo, callback);
         _subscribed = true;
