@@ -48,7 +48,6 @@ PlayerSettings:
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
-  unsupportedMSAAFallback: 0
   m_MTRendering: 1
   mipStripping: 0
   numberOfMipsStripped: 0
@@ -138,10 +137,7 @@ PlayerSettings:
     Others: 1
   bundleVersion: 1.0
   preloadedAssets:
-  - {fileID: 11400000, guid: 17c0a021c46f4420a8f40c7fd666c84f, type: 2}
-  - {fileID: -396998399156436844, guid: d4f54a431b7434619b579f69cbf1700d, type: 2}
-  - {fileID: 11400000, guid: 6af4c993ddeea4dbe80f74ba6217b787, type: 2}
-  - {fileID: 11400000, guid: 5800b8e78d0d04df491135e213f81d2d, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -548,7 +544,7 @@ PlayerSettings:
   switchSocketConcurrencyLimit: 14
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
-  switchEnableFileSystemTrace: 0
+  switchUseGOLDLinker: 0
   switchLTOSetting: 0
   switchApplicationID: 0x01004b9000490000
   switchNSODependencies: 
@@ -677,6 +673,7 @@ PlayerSettings:
   switchSocketBufferEfficiency: 4
   switchSocketInitializeEnabled: 1
   switchNetworkInterfaceManagerInitializeEnabled: 1
+  switchPlayerConnectionEnabled: 1
   switchUseNewStyleFilepaths: 0
   switchUseLegacyFmodPriorities: 1
   switchUseMicroSleepForYield: 1
@@ -780,9 +777,9 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: GLEY_UVS_SUPPORT
+    Android: GLEY_UVS_SUPPORT;gameanalytics_max_enabled
     Windows Store Apps: GLEY_UVS_SUPPORT
-    iPhone: GLEY_UVS_SUPPORT;GLEY_ATT;GLEY_ADMOB;GLEY_PATCH_ADMOB
+    iPhone: GLEY_UVS_SUPPORT;GLEY_ATT;GLEY_ADMOB;GLEY_PATCH_ADMOB;gameanalytics_max_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

@@ -151,6 +151,7 @@ Library: lib_burst_generated64
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/MaxSdk.Scripts.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.VisualScripting.Core.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/UnityEngine.Purchasing.AppleCore.dll
+--root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Coffee.SoftMaskForUGUI.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.Services.Core.Environments.Internal.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.2D.Animation.Runtime.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.TextMeshPro.dll
@@ -175,6 +176,7 @@ Library: lib_burst_generated64
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.Notifications.iOS.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/UnityEngine.Purchasing.Security.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.2D.Tilemap.Extras.dll
+--root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Coffee.UIParticle.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.Profiling.Core.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Purchasing.Common.dll
 --root-assembly=/Users/mac/Documents/cryptogram_word_puzzle/Temp/StagingArea/Data/Managed/Unity.Services.Core.Configuration.dll
