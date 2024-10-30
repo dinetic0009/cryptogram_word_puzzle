@@ -14,7 +14,7 @@ public class Hint : Singleton<Hint>
     [SerializeField] Button btn;
 
     private int hintCount = 0;
-    private bool onAd = false;
+    internal bool onAd = false;
 
     public int HintCount { get => hintCount; }
     public static Action Hint_ShowHint;
@@ -23,11 +23,9 @@ public class Hint : Singleton<Hint>
     private void Start()
     {
         SetVisuals();
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(delegate { On_ConsumeHint(onAd); });
     }
 
-    internal void Click()
+    internal void Click_Tutorial()
     {
         btn.onClick?.Invoke();
     }
@@ -49,11 +47,9 @@ public class Hint : Singleton<Hint>
         hintCountText.text = $"{HintCount}";
     }
 
-    public void On_ConsumeHint(bool showAd)
+    public void On_ConsumeHint()
     {
-        UIManager.Instance.OnClick_Sfx();
-
-        if (!showAd)
+        if (!onAd)
         {
             hintCount--;
             PlayerPrefs.SetInt("HintCount", hintCount);
@@ -84,20 +80,23 @@ public class Hint : Singleton<Hint>
         AdsMediation.rewardCallBack -= OnReward_Hint;
     }
 
+    internal void GetHintOnAd()
+    {
+        onAd = true;
+        On_ConsumeHint();
+    }
+
     void PerformHint()
     {
         SetVisuals();
         btn.interactable = false;
-        //Keyboard.Instance.SetInteractable(false);
         GameManager.Instance.SetHightLightAll(true);
-        //Hint_ShowHint?.Invoke();
     }
 
 
     public void EnableHintBtn()
     {
         btn.interactable = true;
-        //Keyboard.Instance.SetInteractable(true);
     }
 
 }//Class

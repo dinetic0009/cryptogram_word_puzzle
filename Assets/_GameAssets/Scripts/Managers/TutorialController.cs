@@ -192,7 +192,7 @@ public class TutorialController : Singleton<TutorialController>
         hand.transform.position = hintBtn.transform.position;
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart);
 
-        SetRectPosition(new Vector2(1.5f, 2f), hintBtn, () => { Hint.Instance.Click(); ShowHintPopup(); });
+        SetRectPosition(new Vector2(1.5f, 2f), hintBtn, () => { Hint.Instance.Click_Tutorial(); ShowHintPopup(); });
     }
 
     void ShowHintPopup()

@@ -43,6 +43,10 @@ public class Animations : MonoBehaviour
                 seq.Join(transform.DOLocalMove(Vector3.zero, .35f).SetEase(Ease.Linear));
                 break;
 
+            case AnimationType.BottomPanel:
+                rectTr.DOAnchorPos3DY(0, .4f).SetEase(Ease.InSine);
+                break;
+
             case AnimationType.Toast:
                 var rect = transform.GetComponent<RectTransform>();
                 seq.SetAutoKill();
@@ -160,6 +164,14 @@ public class Animations : MonoBehaviour
 
     public void Reset()
     {
+        if(_Type is AnimationType.BottomPanel)
+        {
+            UIManager.Instance.OnClick_Sfx();
+            rectTr.DOAnchorPos3DY(-rectTr.rect.height, .2f).SetEase(Ease.OutSine)
+                .OnComplete(() => transform.parent.GameObjectSetActive(false));
+            return;
+        }
+
         if (_Type is not AnimationType.BG)
             return;
 
@@ -184,5 +196,6 @@ public enum AnimationType
     Toast,
     CompleteLogo,
     HomeLogo,
-    NoAds
+    NoAds,
+    BottomPanel
 }

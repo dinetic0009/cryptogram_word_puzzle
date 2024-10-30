@@ -30,6 +30,15 @@ public class Slot : MonoBehaviour
 
     static public Slot selectedSlot;
 
+    TextAlignmentOptions GetAlignmentOptionForSymble(char _char)
+    {
+        return _char switch
+        {
+            '-' => TextAlignmentOptions.Center,
+            _ => TextAlignmentOptions.Left
+        };
+    }
+
     internal void Init(Letter letter)
     {
         this.letter = letter;
@@ -40,7 +49,10 @@ public class Slot : MonoBehaviour
 
         IsInteractable = isChar && !letter.IsFilled;
         _image.color = isChar ? white : transparent;
-        textComponent.alignment = isChar ? TextAlignmentOptions.Center : TextAlignmentOptions.Left;
+
+
+
+        textComponent.alignment = isChar ? TextAlignmentOptions.Center : GetAlignmentOptionForSymble(letter._char);
 
         textComponent.gameObject.SetActive(!letter.IsLock && !letter.IsDualLock);
         codeTextComponent.gameObject.SetActive(!letter.IsLock && !letter.IsDualLock);
@@ -128,7 +140,7 @@ public class Slot : MonoBehaviour
 
         if(letter.IsLock || letter.IsDualLock)
         {
-            _lock.transform.DOShakeRotation(1, 90, 5, 90, true, ShakeRandomnessMode.Full);
+            _lock.transform.DOShakeRotation(1, new Vector3(0, 0, 90), 5, 90, true, ShakeRandomnessMode.Full);
             return;
         }
 

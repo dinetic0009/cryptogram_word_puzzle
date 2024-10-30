@@ -69,8 +69,14 @@ public class MistakesController : Singleton<MistakesController>
     [ButtonMethod]
     internal void OnRevive()
     {
-        SetUI();
+        GrantMistake();
         Keyboard.Instance.SetInteractable(true);
+    }
+
+    void GrantMistake()
+    {
+        mistakeIndex--;
+        crossList[mistakeIndex].transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void OnDisable()

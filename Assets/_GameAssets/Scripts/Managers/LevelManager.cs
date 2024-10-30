@@ -47,6 +47,11 @@ public class LevelManager : Singleton<LevelManager>
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
                     .ToList());
 
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_2")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
+
         _currenLevelNo = PlayerPrefs.GetInt("Level", 1);
         _levelIndex = PlayerPrefs.GetInt("LevelIndex", 0);
         _levelNoInProgess = PlayerPrefs.GetInt("LevelInProgress", 0);

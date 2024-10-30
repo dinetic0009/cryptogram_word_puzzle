@@ -27,12 +27,15 @@ public class UIManager : Singleton<UIManager>
     [Header("TMPrp")]
     [SerializeField] TextMeshProUGUI winPanel_FinalQuote;
     [SerializeField] TextMeshProUGUI winPanel_FinalQuoteAuther;
+    [SerializeField] List<TextMeshProUGUI> uiLevelIndex;
 
     [Header("Gameplay Colors")]
+    [SerializeField] Image gameplayHeaderImage;
     [SerializeField] List<Color> gameplayColors;
 
     bool canPlayAud = false;
     public static GameState gameState;
+
 
     private void OnEnable()
     {
@@ -65,15 +68,16 @@ public class UIManager : Singleton<UIManager>
 
     internal void SetPanels(GameState gameState)
     {
+        var lastState = UIManager.gameState;
         UIManager.gameState = gameState;
 
-        if(gameState is GameState.Gameplay)
+        if(gameState is GameState.Gameplay && lastState is not GameState.Lose)
         {
-            gameplayPanel.transform.GetChild(0).GetComponent<Image>().color = gameplayColors.GetRandom();
+            gameplayHeaderImage.color = gameplayColors.GetRandom();
         }
 
-        homePanel.SetActive(gameState is GameState.Home);
         gamePausePanel.SetActive(gameState is GameState.Puase);
+        homePanel.SetActive(gameState is GameState.Home);
         losePanel.SetActive(gameState is GameState.Lose);
         winPanel.SetActive(gameState is GameState.Win);
     }
@@ -151,8 +155,56 @@ public class UIManager : Singleton<UIManager>
         settingsPanel.SetActive(true);
     }
 
-    /////////////////////////////////////////// Set Panels ////////////////////////////////////////////////////
-    [SerializeField] List<TextMeshProUGUI> uiLevelIndex;
+    public void On_Hint()
+    {
+        OnClick_Sfx();
+        Hint.Instance.On_ConsumeHint();
+    }
+
+    public void OnBuy_Hints20()
+    {
+        OnClick_Sfx();
+
+#if UNITY_EDITOR
+        Hint.Instance.GrantHints(Purchaser.instance.Consumable_Products.Find(x => x.ProductID == "hints_20").RewardAmount);
+#else 
+        Purchaser.instance.consumableAction += OnPurchase_Hints;
+        Purchaser.instance.BuyConsumableProduct("hints_20");
+#endif
+
+    }
+
+    public void OnBuy_Hints50()
+    {
+        OnClick_Sfx();
+
+#if UNITY_EDITOR
+        Hint.Instance.GrantHints(Purchaser.instance.Consumable_Products.Find(x => x.ProductID == "hints_50").RewardAmount);
+#else
+        Purchaser.instance.consumableAction += OnPurchase_Hints;
+        Purchaser.instance.BuyConsumableProduct("hints_50");
+#endif
+    }
+
+
+    void OnPurchase_Hints(Consumable product, bool isPurchased)
+    {
+        if (isPurchased)
+        {
+            Hint.Instance.GrantHints(product.RewardAmount);
+        }
+
+        Purchaser.instance.consumableAction -= OnPurchase_Hints;
+    }
+
+    public void OnAd_GetHint()
+    {
+        OnClick_Sfx();
+        Hint.Instance.GetHintOnAd();
+    }
+
+    /////////////////////////////////////////// ------------ Set Panels -------------- ////////////////////////////////////////////////////
+
     void SetGameplayPanel(LevelSO level)
     {
         uiLevelIndex.ForEach(x => x.text = $"Level {LevelManager.Instance.Level_No_UI}");

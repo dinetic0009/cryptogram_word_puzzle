@@ -7,6 +7,9 @@ using MyBox;
 using System;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor;
+using UnityEditor.DeviceSimulation;
+using System.Reflection;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -46,6 +49,38 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable()
     {
         LevelManager.OnLevelInit += SetLevel;
+        lineParent.localScale = Vector3.one * GetDeviceScaleMultiplier();
+    }
+
+    
+
+    float GetDeviceScaleMultiplier()
+    {
+
+#if UNITY_EDITOR
+        Debug.Log("Plateform: " + Application.platform);
+        return 1f;
+#else
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            // Check if it's an iPad specifically
+            if (SystemInfo.deviceModel.Contains("iPad"))
+            {
+                Debug.Log("Device is an iPad");
+                return 1.5f;
+            }
+            else
+            {
+                Debug.Log("Device is an iPhone");
+                return 1f;
+            }
+        }
+        else
+        {
+            Debug.Log("Device is not an iOS device");
+            return 1f;
+        }
+#endif
     }
 
     public void SetLevel(LevelSO level)
@@ -63,6 +98,7 @@ public class GameManager : Singleton<GameManager>
         var lines = SplitSentenceIntoLines(_phrase);
         Slot.selectedSlot = null;
         lineParent.ClearChilds();
+
 
         for (int i = 0; i < lines.Count; i++)
         {
@@ -187,6 +223,8 @@ public class GameManager : Singleton<GameManager>
         //Debug.Log($"{level.visibilityPercentage}% of {totalCount} = {preFilledCount}");
 
         var _sameLetterGroups = sameLetterGroups.Copy();
+        _sameLetterGroups.ForEach(x => x.letters.Shuffle());
+
         if (level.visibilityPercentage > 50)
             _sameLetterGroups.Reverse();
 

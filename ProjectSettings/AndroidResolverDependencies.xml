@@ -1,6 +1,8 @@
 <dependencies>
   <packages>
-    <package>com.google.ads.mediation:applovin:11.9.0.0</package>
+    <package>com.applovin.mediation:unityads-adapter:4.12.2.1</package>
+    <package>com.applovin:applovin-sdk:13.0.0</package>
+    <package>com.google.ads.mediation:mintegral:16.6.34.0</package>
     <package>com.google.android.gms:play-services-ads:22.6.0</package>
     <package>com.google.android.play:core:1.10.3</package>
     <package>com.google.android.ump:user-messaging-platform:2.1.0</package>
@@ -11,8 +13,8 @@
     <setting name="bundleId" value="com.DefaultCompany.Cryptogrampuzzles" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
-    <setting name="gradlePropertiesTemplateEnabled" value="False" />
-    <setting name="gradleTemplateEnabled" value="False" />
+    <setting name="gradlePropertiesTemplateEnabled" value="True" />
+    <setting name="gradleTemplateEnabled" value="True" />
     <setting name="installAndroidPackages" value="True" />
     <setting name="localMavenRepoDir" value="Assets/GeneratedLocalRepo" />
     <setting name="packageDir" value="Assets/Plugins/Android" />
