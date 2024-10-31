@@ -41,6 +41,11 @@ public class GameManager : Singleton<GameManager>
         allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(highlighted));
     }
 
+    public List<Slot> HighLightedSlots()
+    {
+        return allSlots.Where(x => x.IsEmpty).Select(y => y.slot).ToList();
+    }
+
     public void SetInteractable(bool isInternactabe)
     {
         interactableMaskOb.SetActive(!isInternactabe);

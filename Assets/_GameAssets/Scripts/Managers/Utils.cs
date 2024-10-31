@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public static class Utils
 {
@@ -81,6 +82,32 @@ public static class Extension
             else
                 x.gameObject.SetActive(false);
         });
+    }
+
+    public static void SetImagePixelsPerUnit(this Image image, float ppu)
+    {
+        if (image.sprite != null)
+        {
+            // Create a new sprite with the specified Pixels Per Unit
+            Sprite originalSprite = image.sprite;
+            Sprite newSprite = Sprite.Create(
+                originalSprite.texture,
+                originalSprite.rect,
+                originalSprite.pivot / originalSprite.rect.size, // Adjust pivot based on the new PPU
+                ppu
+            );
+
+            // Assign the new sprite to the UI Image component
+            image.sprite = newSprite;
+
+            // Set the rect transform scale or size to match the change if necessary
+            // image.rectTransform.sizeDelta = new Vector2(newSprite.rect.width / ppu, newSprite.rect.height / ppu);
+            Debug.Log($"Set Pixels Per Unit to {ppu} for UI Image {newSprite.name}");
+        }
+        else
+        {
+            Debug.LogWarning("UI Image has no sprite assigned.");
+        }
     }
 
     public static void GetChilds(this Transform parent, out List<Transform> childs)

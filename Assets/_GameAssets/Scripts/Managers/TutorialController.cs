@@ -7,6 +7,7 @@ using DG.Tweening;
 using MyBox;
 using TMPro;
 using System.Linq;
+using Coffee.UISoftMask;
 
 public class TutorialController : Singleton<TutorialController>
 {
@@ -43,7 +44,7 @@ public class TutorialController : Singleton<TutorialController>
 
     private void Start()
     {
-        SetRectPosition(Vector2.zero ,null, null);
+        SetRectPosition(blackBg, Vector2.zero ,null, null);
         keyboard.SetInteractable(false);
     }
 
@@ -59,17 +60,17 @@ public class TutorialController : Singleton<TutorialController>
         });
     }
 
-    void SetRectPosition(Vector2 sizeMultiplier, RectTransform sourceRect = null, Action onClick = null)
+    void SetRectPosition(RectTransform mask, Vector2 sizeMultiplier, RectTransform sourceRect = null, Action onClick = null)
     {
         var size = sourceRect == null ? new(10, 10) : sourceRect.sizeDelta;
         size.y *= sizeMultiplier.y;
         size.x *= sizeMultiplier.x;
-        blackBg.DOSizeDelta(size, .4f);
+        mask.DOSizeDelta(size, .4f);
 
         if (sourceRect == null)
-            blackBg.anchoredPosition = Vector2.zero;
+            mask.anchoredPosition = Vector2.zero;
         else
-            blackBg.transform.DOMove(sourceRect.transform.position, .5f);
+            mask.transform.DOMove(sourceRect.transform.position, .5f);
 
         _btn.interactable = onClick != null;
         _btn.onClick.RemoveAllListeners();
@@ -98,7 +99,7 @@ public class TutorialController : Singleton<TutorialController>
         var firstFilledLetter = FirstFilledLetter();
 
         var sourceRect = firstFilledLetter.slot.GetComponent<RectTransform>();
-        SetRectPosition(Vector2.zero,new(), null);
+        SetRectPosition(blackBg, Vector2.zero,new(), null);
         
         popupText.text = $"A <color={yellow.ToHex()}>digit</color> refers to a letter.\nFor example, <color={yellow.ToHex()}>{firstFilledLetter.code}</color> is <color={yellow.ToHex()}>{char.ToUpper(firstFilledLetter._char)}</color>";
         Set_OnContinue(ChooseCell);
@@ -115,7 +116,7 @@ public class TutorialController : Singleton<TutorialController>
         var sourceRect = SelectedEmptySlot.slot.GetComponent<RectTransform>();
         hand.transform.position = sourceRect.transform.position;
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart);
-        SetRectPosition(new Vector2(1.5f,2f), sourceRect, () => { SelectedEmptySlot.slot.Click(); Utils.WaitAndPerform(.2f, ToKeyboard); });
+        SetRectPosition(blackBg, new Vector2(1.5f,2f), sourceRect, () => { SelectedEmptySlot.slot.Click(); Utils.WaitAndPerform(.2f, ToKeyboard); });
     }
 
     Key selectedKey = null;
@@ -127,7 +128,7 @@ public class TutorialController : Singleton<TutorialController>
         hand.transform.DOMove(selectedKey.transform.position, .5f).OnComplete(() => 
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart));
         var sourceRect = selectedKey.GetComponent<RectTransform>();
-        SetRectPosition(Vector2.one, sourceRect, () => { selectedKey.Click(); Utils.WaitAndPerform(.2f, ShowGreenInfo); });
+        SetRectPosition(blackBg, Vector2.one, sourceRect, () => { selectedKey.Click(); Utils.WaitAndPerform(.2f, ShowGreenInfo); });
 
         popupText.text = $"Choose a key.";
         //popup.transform.DOLocalMoveY(100, .5f);
@@ -136,7 +137,7 @@ public class TutorialController : Singleton<TutorialController>
     void ShowGreenInfo()
     {
         Key key = keyboard.Keys.FirstOrDefault(x => x.IsHighlighted() && x != selectedKey);
-        SetRectPosition(Vector2.one, key.GetComponent<RectTransform>(), null);
+        SetRectPosition(blackBg, Vector2.one, key.GetComponent<RectTransform>(), null);
 
         hand.gameObject.SetActive(false);
         popup.transform.DOLocalMoveY(-30, .4f);
@@ -192,9 +193,10 @@ public class TutorialController : Singleton<TutorialController>
         hand.transform.position = hintBtn.transform.position;
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart);
 
-        SetRectPosition(new Vector2(1.5f, 2f), hintBtn, () => { Hint.Instance.Click_Tutorial(); ShowHintPopup(); });
+        SetRectPosition(blackBg, new Vector2(1.5f, 2f), hintBtn, () => { Hint.Instance.Click_Tutorial(); ShowHintPopup(); });
     }
 
+    List<GameObject> masks = new();
     void ShowHintPopup()
     {
         hand.GameObjectSetActive(false);
@@ -204,10 +206,29 @@ public class TutorialController : Singleton<TutorialController>
         GameManager.Instance.SetInteractable(true);
         popupText.text = "Choose a cell that you want to reveal.";
         Set_OnContinue(null);
+
+        var slots = GameManager.Instance.HighLightedSlots();
+        blackBg.gameObject.SetActive(true);
+        blackBg.GetComponent<SoftMask>().ignoreSelfGraphic = true;
+
+        masks = new();
+        foreach(Slot slot in slots)
+        {
+            var mask = Instantiate(blackBg.GetChild(0), blackBg);
+            mask.GetComponent<Image>().SetImagePixelsPerUnit(10f);
+            mask.gameObject.SetActive(true);
+            masks.Add(mask.gameObject);
+
+            SetRectPosition(mask.GetComponent<RectTransform>(), Vector2.one, slot.GetComponent<RectTransform>(), delegate { slot.On_Select(); });
+        }
     }
+
 
     internal void CompleteHintTutorial()
     {
+        masks.ForEach(x => x.SetActive(false));
+        blackBg.GetComponent<SoftMask>().ignoreSelfGraphic = false;
+
         PlayerPrefs.SetInt("HintTutorialCompleted", 1);
         TutorialPanel.SetActive(false);
         keyboard.SetInteractable(true);
@@ -228,7 +249,7 @@ public class TutorialController : Singleton<TutorialController>
         popup.transform.DOScale(1.3f, .3f);
 
         blackBg.gameObject.SetActive(true);
-        SetRectPosition(new(1, 1.4f), misktakesRect, EndMistakesTutorial);
+        SetRectPosition(blackBg, new(1, 1.4f), misktakesRect, EndMistakesTutorial);
         Set_OnContinue(EndMistakesTutorial);
     }
 
