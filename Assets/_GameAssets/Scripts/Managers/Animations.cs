@@ -44,7 +44,7 @@ public class Animations : MonoBehaviour
                 break;
 
             case AnimationType.BottomPanel:
-                rectTr.DOAnchorPos3DY(0, .4f).SetEase(Ease.InSine);
+                rectTr.DOAnchorPos3DY(65, .8f).SetEase(Ease.InSine);
                 break;
 
             case AnimationType.Toast:
@@ -70,7 +70,8 @@ public class Animations : MonoBehaviour
 
                 transform.GetChilds(out List<Transform> childs);
                 childs.Shuffle();
-                childs.ForEach(x => {
+                childs.ForEach(x =>
+                {
 
                     DOTween.Sequence()
                     .Append(x.DOMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
@@ -83,7 +84,8 @@ public class Animations : MonoBehaviour
 
                 transform.GetChilds(out List<Transform> _childs);
                 _childs.Shuffle();
-                _childs.ForEach((x,i) => {
+                _childs.ForEach((x, i) =>
+                {
 
                     DOTween.Sequence()
                     .SetDelay(1f)
@@ -103,7 +105,7 @@ public class Animations : MonoBehaviour
     //[SerializeField, ConditionalField(nameof(_Type), false ,AnimationType.HomeLogo, order = 1)] float changeWait, nextLetterWait;
 
     readonly List<char> list = new() { 'c', 'r', 'y', 'p', 't', 'o' };
-    readonly List<int> counts = new() { 5, 6, 3, 6, 4, 3};
+    readonly List<int> counts = new() { 5, 6, 3, 6, 4, 3 };
 
     IEnumerator HomeLogo()
     {
@@ -111,7 +113,8 @@ public class Animations : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         transform.GetChilds(out List<Transform> slots);
 
-        slots.ForEach((x,i) => {
+        slots.ForEach((x, i) =>
+        {
 
             DOTween.Sequence()
             .OnStart(() => x.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{GetRandomLetter(list[i])}")
@@ -121,7 +124,7 @@ public class Animations : MonoBehaviour
         });
 
 
-        for(int i = 0; i< slots.Count; i++)
+        for (int i = 0; i < slots.Count; i++)
         {
             int _i = i;
             var letter = list[_i];
@@ -144,14 +147,14 @@ public class Animations : MonoBehaviour
 
     }
 
-    private  char lastLetter = '0';
+    private char lastLetter = '0';
     char GetRandomLetter(char targetLetter)
     {
         char randomLetter = (char)Random.Range('a', 'z' + 1);
 
         while (true)
         {
-            if(randomLetter != lastLetter && randomLetter != targetLetter)
+            if (randomLetter != lastLetter && randomLetter != targetLetter)
                 break;
 
             randomLetter = (char)Random.Range('a', 'z' + 1);
@@ -164,7 +167,7 @@ public class Animations : MonoBehaviour
 
     public void Reset()
     {
-        if(_Type is AnimationType.BottomPanel)
+        if (_Type is AnimationType.BottomPanel)
         {
             UIManager.Instance.OnClick_Sfx();
             rectTr.DOAnchorPos3DY(-rectTr.rect.height, .2f).SetEase(Ease.OutSine)
@@ -185,7 +188,7 @@ public class Animations : MonoBehaviour
             .OnComplete(() => transform.parent.GameObjectSetActive(false));
     }
 
-    
+
 }
 
 

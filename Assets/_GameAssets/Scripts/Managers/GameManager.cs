@@ -7,8 +7,8 @@ using MyBox;
 using System;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEditor;
-using UnityEditor.DeviceSimulation;
+//using UnityEditor;
+//using UnityEditor.DeviceSimulation;
 using System.Reflection;
 
 public class GameManager : Singleton<GameManager>
@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
         lineParent.localScale = Vector3.one * GetDeviceScaleMultiplier();
     }
 
-    
+
 
     float GetDeviceScaleMultiplier()
     {
@@ -150,7 +150,7 @@ public class GameManager : Singleton<GameManager>
         allSlots.ForEach((x, i) => x.Init());
         lineParent.GetComponentInParent<ScrollRect>().normalizedPosition = new(0, 1);
 
-        if(!TutorialController.Instance.CanShowTutorial)
+        if (!TutorialController.Instance.CanShowTutorial)
             OnUpdate();
 
         Utils.WaitAndPerform(1.2f, () => TutorialController_ShowTutorial?.Invoke());
@@ -235,7 +235,7 @@ public class GameManager : Singleton<GameManager>
 
         List<Letter> selectedLetters = new();
 
-        for(int i = 0; i < _sameLetterGroups.Count; i++)
+        for (int i = 0; i < _sameLetterGroups.Count; i++)
         {
             var _letters = _sameLetterGroups[i].letters;
             List<Letter> _selectedLetters = _letters.Count > 3 ? _letters.Take((_letters.Count * 65) / 100).ToList() : _letters;
@@ -252,7 +252,7 @@ public class GameManager : Singleton<GameManager>
             OnSlotFilled(x);
         });
 
-        if(LevelManager.Instance.Level_No_UI < 5)
+        if (LevelManager.Instance.Level_No_UI < 5)
         {
             _sameLetterGroups.ForEach(x =>
             {
@@ -282,13 +282,13 @@ public class GameManager : Singleton<GameManager>
             new List<Letter>().Take(singleLockCount).ForEach(x => x.SetState(SlotState.DualLocked));
         }
 
-        if(level.dualLockCount > 0)
+        if (level.dualLockCount > 0)
         {
             GetDualLockableSlots(allLetters, out List<Letter> dualLockableSlots);
             int singleLockCount = Mathf.Clamp(dualLockableSlots.Count, 0, level.dualLockCount);
             dualLockableSlots.Take(singleLockCount).ForEach(x => x.SetState(SlotState.DualLocked));
         }
-        
+
         JsonController.Instance.SaveStates(allSlots);
     }
 
@@ -364,7 +364,7 @@ public class GameManager : Singleton<GameManager>
 
     void CheckToUnlock(Letter letter)
     {
-        if(letter.prevLetter != null)
+        if (letter.prevLetter != null)
         {
             if (letter.prevLetter.IsLock)
                 UnlockSlot(letter.prevLetter);
@@ -377,13 +377,13 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        if(letter.nextLetter != null)
+        if (letter.nextLetter != null)
         {
             if (letter.nextLetter.IsLock)
                 UnlockSlot(letter.nextLetter);
             if (letter.nextLetter.IsDualLock)
             {
-                if(letter.nextLetter.nextLetter.IsFilled)
+                if (letter.nextLetter.nextLetter.IsFilled)
                     UnlockSlot(letter.prevLetter);
                 else
                     letter.nextLetter.SetOneSideUnlock();
@@ -498,7 +498,7 @@ public class Word
 
     public Word(List<Letter> letters = null)
     {
-        this.letters = letters.IsNullOrEmpty()? new() : letters;
+        this.letters = letters.IsNullOrEmpty() ? new() : letters;
     }
 }
 

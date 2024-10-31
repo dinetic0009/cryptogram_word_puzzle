@@ -59,6 +59,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
@@ -281,11 +282,11 @@ MonoBehaviour:
     AppleStoreID: com.aam.games.cryptogram.removeads
   Consumable_Products:
   - ProductID: hints_20
-    GoogleStoreID: 
-    AppleStoreID: 
+    GoogleStoreID: com.aam.games.cryptogram.20hints
+    AppleStoreID: com.aam.games.cryptogram.20hints
     RewardAmount: 20
   - ProductID: hints_50
-    GoogleStoreID: 
-    AppleStoreID: 
+    GoogleStoreID: com.aam.games.cryptogram.50hints
+    AppleStoreID: com.aam.games.cryptogram.50hints
     RewardAmount: 50
   Spinner: {fileID: 1489002782068779875}
