@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using MyBox;
 using System;
+using DG.Tweening;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime;
 //using UnityEditor;
@@ -61,32 +62,32 @@ public class GameManager : Singleton<GameManager>
 
     float GetDeviceScaleMultiplier()
     {
-        return 1f;
+        //return 1f;
 
-        //#if UNITY_EDITOR
-        //        Debug.Log("Plateform: " + Application.platform);
-        //        return 1f;
-        //#else
-        //        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        //        {
-        //            // Check if it's an iPad specifically
-        //            if (SystemInfo.deviceModel.Contains("iPad"))
-        //            {
-        //                Debug.Log("Device is an iPad");
-        //                return 1.5f;
-        //            }
-        //            else
-        //            {
-        //                Debug.Log("Device is an iPhone");
-        //                return 1f;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Device is not an iOS device");
-        //            return 1f;
-        //        }
-        //#endif
+#if UNITY_EDITOR
+                Debug.Log("Plateform: " + Application.platform);
+                return 1f;
+#else
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            // Check if it's an iPad specifically
+            if (SystemInfo.deviceModel.Contains("iPad"))
+            {
+                Debug.Log("Device is an iPad");
+                return 1.5f;
+            }
+            else
+            {
+                Debug.Log("Device is an iPhone");
+                return 1f;
+            }
+        }
+        else
+        {
+            Debug.Log("Device is not an iOS device");
+            return 1f;
+        }
+#endif
     }
 
     public void SetLevel(LevelSO level)
@@ -149,7 +150,7 @@ public class GameManager : Singleton<GameManager>
         SetStates();
 
         allSlots.ForEach((x, i) => x.Init());
-        lineParent.GetComponentInParent<ScrollRect>().normalizedPosition = new(0, 1);
+        lineParent.GetComponentInParent<ScrollRect>().DOVerticalNormalizedPos(1, 0);
 
         if (!TutorialController.Instance.CanShowTutorial)
             OnUpdate();
