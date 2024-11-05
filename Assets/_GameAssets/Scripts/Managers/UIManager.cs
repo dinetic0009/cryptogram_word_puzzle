@@ -36,6 +36,11 @@ public class UIManager : Singleton<UIManager>
     bool canPlayAud = false;
     public static GameState gameState;
 
+    /* Adbreak Popup*/
+    Coroutine AdBreakCoroutine = null;
+    public int DelayForAdBreak;
+    [SerializeField] private int timePassedSinceAd = 0;
+    public AdBreakPopup adBreakPopup;
 
     private void OnEnable()
     {
@@ -98,6 +103,7 @@ public class UIManager : Singleton<UIManager>
 
     public void On_RestartLevel()
     {
+        stopAdBreakCoroutine();
         OnClick_Sfx();
         LevelManager.Instance.LoadCurrentLevel();
     }
@@ -141,6 +147,7 @@ public class UIManager : Singleton<UIManager>
 
     public void On_Home(Animations animation)
     {
+        stopAdBreakCoroutine();
         OnClick_Sfx();
         animation.Reset();
         //gamePausePanel.SetActive(false);
@@ -209,6 +216,45 @@ public class UIManager : Singleton<UIManager>
     {
         uiLevelIndex.ForEach(x => x.text = $"Level {LevelManager.Instance.Level_No_UI}");
         SetPanels(GameState.Gameplay);
+        setupAdBreakCoroutine();
+    }
+
+    public void setupAdBreakCoroutine()
+    {
+        timePassedSinceAd = 0;
+        AdBreakCoroutine = null;
+        AdBreakCoroutine = StartCoroutine(CheckAndShowAd());
+    }
+
+    IEnumerator CheckAndShowAd()
+    {
+        while (timePassedSinceAd != DelayForAdBreak)
+        {
+            yield return new WaitForSeconds(1f);
+            timePassedSinceAd++;
+        }
+
+        if (AdsMediation.instance.IsInterstitialReadyForAnyNetwork())
+        {
+            adBreakPopup.OnShowing();
+        }
+        else
+        {
+            setupAdBreakCoroutine();
+        }
+    }
+
+    public int GetTimePassedSinceAd()
+    {
+        return timePassedSinceAd;
+    }
+
+    public void stopAdBreakCoroutine()
+    {
+        if (AdBreakCoroutine != null)
+        {
+            StopCoroutine(AdBreakCoroutine);
+        }
     }
 
     public void SetLosePanel()

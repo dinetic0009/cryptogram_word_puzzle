@@ -128,8 +128,11 @@ public class LevelManager : Singleton<LevelManager>
 
         showCompleteAnimation = true;
         PlayerPrefs.SetInt("LevelInProgress", _levelNoInProgess);
-        AdsMediation.instance.ShowInterstial();
-
+        if (UIManager.Instance.GetTimePassedSinceAd() > 30f)
+        {
+            AdsMediation.instance.ShowInterstial();
+        }
+        UIManager.Instance.stopAdBreakCoroutine();
     }//CompleteLevel
 
     #region LevelRoat

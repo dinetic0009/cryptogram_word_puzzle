@@ -37,6 +37,7 @@ public class AdsMediation : MonoBehaviour
     /// Rewarded Ad Action
     /// </summary>
     public static Action<bool> rewardCallBack;
+    public static Action interstitialCallBack;
     /// <summary>
     /// AdToast UI
     /// </summary>
@@ -167,7 +168,7 @@ public class AdsMediation : MonoBehaviour
 
                 if (IsInterstitialReadyForAnyNetwork())
                 {
-                    MobileAdsManager.Instance.ShowInterstitial(null);
+                    MobileAdsManager.Instance.ShowInterstitial(InterstitalCompleteMethod);
                 }
             }
             else if (NetworkSelected == "APPLOVIN")
@@ -273,6 +274,11 @@ public class AdsMediation : MonoBehaviour
         rewardCallBack?.Invoke(completed);
     }
 
+    private void InterstitalCompleteMethod()
+    {
+        interstitialCallBack?.Invoke();
+    }
+
     private void GleyInitCompleted()
     {
         Debug.Log("Gley Init Completed.");
@@ -347,6 +353,7 @@ public class AdsMediation : MonoBehaviour
         // Interstitial ad is hidden. Pre-load the next ad
         Debug.Log("Interstitial dismissed");
         LoadInterstitial();
+        InterstitalCompleteMethod();
     }
 
     private void OnInterstitialRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
