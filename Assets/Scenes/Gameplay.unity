@@ -4319,8 +4319,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764470726}
   m_HandleRect: {fileID: 1764470725}
   m_Direction: 2
-  m_Value: -0.0000025822578
-  m_Size: 0.816032
+  m_Value: -0.0000056340173
+  m_Size: 0.81274354
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4448,25 +4448,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883956}
-        m_TargetAssemblyTypeName: Animations, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 62438508}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: On_Revive
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 872883956}
+          m_ObjectArgumentAssemblyTypeName: Animations, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -48124,20 +48112,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 0}
   sfxSource: {fileID: 576815095}
-  music: []
+  music:
+  - effectType: 0
+    audioClip: {fileID: 8300000, guid: c53ca223493014e48baa08a941631d29, type: 3}
   sfx:
   - effectType: 0
-    audioClip: {fileID: 8300000, guid: 28ab7792add5a4609bdeb7e76a09c1e4, type: 3}
+    audioClip: {fileID: 8300000, guid: a2223d6db19ca4dc3900473c4a779f8a, type: 3}
   - effectType: 1
     audioClip: {fileID: 8300000, guid: 68edea64747ec469e8e48cd05f165e8d, type: 3}
   - effectType: 2
-    audioClip: {fileID: 8300000, guid: cc0b0ac689c454cf6ae8048df0bef2f5, type: 3}
+    audioClip: {fileID: 8300000, guid: eb1a55f09ab3a4c86a8e6e6c7ba0c5a0, type: 3}
   - effectType: 3
-    audioClip: {fileID: 8300000, guid: 07f53c2f46de149aaac8b65383cafe6a, type: 3}
+    audioClip: {fileID: 8300000, guid: 43dd73170cc0a446297e5d7257599115, type: 3}
   - effectType: 4
-    audioClip: {fileID: 8300000, guid: 718acbe8730f6484abb667884a223ff7, type: 3}
+    audioClip: {fileID: 8300000, guid: 1e07dc674d7364b99ad3ea65b5cc95aa, type: 3}
   - effectType: 6
-    audioClip: {fileID: 8300000, guid: 68edea64747ec469e8e48cd05f165e8d, type: 3}
+    audioClip: {fileID: 8300000, guid: a2223d6db19ca4dc3900473c4a779f8a, type: 3}
 --- !u!1001 &1065082522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58711,7 +58701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 275, y: 330}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1199235756
@@ -59719,7 +59709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -114.99985}
+  m_AnchoredPosition: {x: 0, y: -114.99965}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284172560
@@ -92537,12 +92527,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Play without internuptions
+  m_text: 'Play without interuptions.
 
-    Remove pop-ups and banners
+    Remove pop-ups and banners.
 
     Go Ads
-    free now'
+    free now.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

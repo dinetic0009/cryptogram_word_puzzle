@@ -108,15 +108,17 @@ public class UIManager : Singleton<UIManager>
         LevelManager.Instance.LoadCurrentLevel();
     }
 
-    public void On_Revive()
+    public void On_Revive(Animations _animation)
     {
         OnClick_Sfx();
 
 #if UNITY_EDITOR
+        _animation.Reset();
         GrantRevive();
 #else
         if (AdsMediation.instance.IsRewardedVideoReadyForAnyNetwork())
         {
+            _animation.Reset();
             AdsMediation.rewardCallBack += OnReward_GrantRevive;
             AdsMediation.instance.ShowRewardedVideo();
         }

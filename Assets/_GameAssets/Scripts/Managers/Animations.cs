@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using MyBox;
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 
 public class Animations : MonoBehaviour
@@ -28,31 +29,48 @@ public class Animations : MonoBehaviour
             rectPosition = rectTr.anchoredPosition;
 
         scale = transform.localScale.x;
-    
-        if (_Type is AnimationType.NoAds)
+
+
+        switch (_Type)
         {
-            transform.GetChilds(out List<Transform> _childs);
-            _childs.Shuffle();
-            _childs.ForEach((x, i) =>
-            {
-                DOTween.Sequence()
-                .SetDelay(1f)
-                .Append(x.DOLocalMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
-                .AppendInterval(.2f)
-                .SetLoops(-1, LoopType.Restart);
-            });
-        }
-        else if(_Type is AnimationType.CompleteLogo)
-        {
-            transform.GetChilds(out List<Transform> childs);
-            childs.Shuffle();
-            childs.ForEach(x =>
-            {
-                DOTween.Sequence()
-                .Append(x.DOMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
-                .AppendInterval(.2f)
-                .SetLoops(-1, LoopType.Restart);
-            });
+            case AnimationType.NoAds:
+
+                transform.GetChilds(out List<Transform> _childs);
+                _childs.Shuffle();
+                _childs.ForEach((x, i) =>
+                {
+                    DOTween.Sequence()
+                    .SetDelay(1f)
+                    .Append(x.DOLocalMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .AppendInterval(.2f)
+                    .SetLoops(-1, LoopType.Restart);
+                });
+                break;
+
+            case AnimationType.CompleteLogo:
+
+                transform.GetChilds(out List<Transform> childs);
+                childs.Shuffle();
+                childs.ForEach(x =>
+                {
+                    DOTween.Sequence()
+                    .Append(x.DOMoveY(-10f, .7f).SetEase(Ease.Linear).SetDelay(Random.Range(0, 2) == 0 ? .2f : 0).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .AppendInterval(.2f)
+                    .SetLoops(-1, LoopType.Restart);
+                });
+                break;
+
+            case AnimationType.HomeLogo:
+                transform.GetChilds(out List<Transform> slots);
+                slots.ForEach((x, i) =>
+                {
+                    DOTween.Sequence()
+                    .OnStart(() => x.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{GetRandomLetter(list[i])}")
+                    .Append(x.DOMoveY(-9f, .8f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
+                    .AppendInterval(.2f)
+                    .SetLoops(-1, LoopType.Restart);
+                });
+                break;
         }
     }
 
@@ -70,7 +88,7 @@ public class Animations : MonoBehaviour
                 break;
 
             case AnimationType.BottomPanel:
-                rectTr.DOAnchorPos3DY(65, .8f).SetEase(Ease.InSine);
+                rectTr.DOAnchorPos3DY(65, .5f);
                 break;
 
             case AnimationType.Toast:
@@ -92,10 +110,6 @@ public class Animations : MonoBehaviour
                 seq.SetLoops(-1, LoopType.Restart);
                 break;
 
-            
-
-
-
             case AnimationType.HomeLogo:
                 StartCoroutine(HomeLogo());
                 break;
@@ -113,17 +127,6 @@ public class Animations : MonoBehaviour
         LevelManager.Instance.SetLevelRoad();
         yield return new WaitForSeconds(.1f);
         transform.GetChilds(out List<Transform> slots);
-
-        slots.ForEach((x, i) =>
-        {
-
-            DOTween.Sequence()
-            .OnStart(() => x.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = $"{GetRandomLetter(list[i])}")
-            .Append(x.DOMoveY(-9f, .8f).SetEase(Ease.Linear).SetDelay(i * .2f).SetRelative().SetLoops(2, LoopType.Yoyo))
-            .AppendInterval(.2f)
-            .SetLoops(-1, LoopType.Restart);
-        });
-
 
         for (int i = 0; i < slots.Count; i++)
         {
