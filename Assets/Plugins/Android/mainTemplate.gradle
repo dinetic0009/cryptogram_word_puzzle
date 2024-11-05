@@ -9,10 +9,10 @@
             url "https://maven.google.com/" // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7, Assets/GoogleMobileAds/Editor/GoogleUmpDependencies.xml:7
         }
         maven {
-            url "https://repo.maven.apache.org/maven2/" // Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
+            url "https://repo.maven.apache.org/maven2/" // Assets/GoogleMobileAds/Mediation/LiftoffMonetize/Editor/LiftoffMonetizeMediationDependencies.xml:24, Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
         }
         maven {
-            url "https://dl.google.com/dl/android/maven2/" // Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
+            url "https://dl.google.com/dl/android/maven2/" // Assets/GoogleMobileAds/Mediation/LiftoffMonetize/Editor/LiftoffMonetizeMediationDependencies.xml:24, Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
         }
         maven {
             url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
@@ -28,9 +28,9 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.applovin.mediation:unityads-adapter:4.12.2.1' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4
     implementation 'com.applovin:applovin-sdk:13.0.0' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
     implementation 'com.google.ads.mediation:mintegral:16.6.34.0' // Assets/GoogleMobileAds/Mediation/Mintegral/Editor/MintegralMediationDependencies.xml:25
+    implementation 'com.google.ads.mediation:vungle:7.1.0.0' // Assets/GoogleMobileAds/Mediation/LiftoffMonetize/Editor/LiftoffMonetizeMediationDependencies.xml:24
     implementation 'com.google.android.gms:play-services-ads:22.6.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
     implementation 'com.google.android.play:core:1.10.3' // Assets/GooglePlayPlugins/com.google.play.core/Editor/PlayCoreDependencies.xml:3
     implementation 'com.google.android.ump:user-messaging-platform:2.1.0' // Assets/GoogleMobileAds/Editor/GoogleUmpDependencies.xml:7
