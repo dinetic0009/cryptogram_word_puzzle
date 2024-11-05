@@ -61,31 +61,32 @@ public class GameManager : Singleton<GameManager>
 
     float GetDeviceScaleMultiplier()
     {
-
-#if UNITY_EDITOR
-        Debug.Log("Plateform: " + Application.platform);
         return 1f;
-#else
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            // Check if it's an iPad specifically
-            if (SystemInfo.deviceModel.Contains("iPad"))
-            {
-                Debug.Log("Device is an iPad");
-                return 1.5f;
-            }
-            else
-            {
-                Debug.Log("Device is an iPhone");
-                return 1f;
-            }
-        }
-        else
-        {
-            Debug.Log("Device is not an iOS device");
-            return 1f;
-        }
-#endif
+
+        //#if UNITY_EDITOR
+        //        Debug.Log("Plateform: " + Application.platform);
+        //        return 1f;
+        //#else
+        //        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        //        {
+        //            // Check if it's an iPad specifically
+        //            if (SystemInfo.deviceModel.Contains("iPad"))
+        //            {
+        //                Debug.Log("Device is an iPad");
+        //                return 1.5f;
+        //            }
+        //            else
+        //            {
+        //                Debug.Log("Device is an iPhone");
+        //                return 1f;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Debug.Log("Device is not an iOS device");
+        //            return 1f;
+        //        }
+        //#endif
     }
 
     public void SetLevel(LevelSO level)
