@@ -11,14 +11,19 @@ public class Slot : MonoBehaviour
     public Image _image, _lock;
     [SerializeField] TextMeshProUGUI textComponent, codeTextComponent;
 
-    [SerializeField] Sprite normalSp, hightlightSp;
+    [SerializeField] Sprite normalSp, _normalDarkSp, hightlightSp;
     [SerializeField] Sprite singleLockSp, dualLockSp;
 
     [Header("Text Colors")]
+    [SerializeField] Color _normalColor;
+    [SerializeField] Color _darkModeColor;
+
     [SerializeField] Color white;
     [SerializeField] Color red;
     [SerializeField] Color green;
     [SerializeField] Color transparent;
+
+    private Sprite _activeNormalSp;
 
     public Button _button;
 
@@ -39,6 +44,11 @@ public class Slot : MonoBehaviour
         };
     }
 
+    private void Awake()
+    {
+
+    }
+
     internal void Init(Letter letter)
     {
         this.letter = letter;
@@ -50,8 +60,6 @@ public class Slot : MonoBehaviour
         IsInteractable = isChar && !letter.IsFilled;
         _image.color = isChar ? white : transparent;
 
-
-
         textComponent.alignment = isChar ? TextAlignmentOptions.Center : GetAlignmentOptionForSymble(letter._char);
 
         textComponent.gameObject.SetActive(!letter.IsLock && !letter.IsDualLock);
@@ -60,6 +68,7 @@ public class Slot : MonoBehaviour
         _lock.sprite = letter.IsDualLock ? dualLockSp : singleLockSp;
 
         _button.onClick.RemoveAllListeners();
+
         _button.onClick.AddListener(delegate
         {
             SoundManager.Instance.PlaySfx(SoundType.Select);
@@ -72,12 +81,33 @@ public class Slot : MonoBehaviour
         _button.onClick?.Invoke();
     }
 
+    public void ApplyTheme(bool isLight)
+    {
+        Sprite usesprite = normalSp;
+        Color useColor = _darkModeColor;
+
+        if (isLight)
+        {
+            _activeNormalSp = normalSp;
+            useColor = _normalColor;
+        }
+        else
+        {
+            _activeNormalSp = _normalDarkSp;
+            useColor = _darkModeColor;
+        }
+
+        textComponent.color = useColor;
+        codeTextComponent.color = useColor;
+        SetHighlight(isHighlighted);
+    }
+
     bool isHighlighted = false;
     internal void SetHighlight(bool hightlight)
     {
         isHighlighted = hightlight;
         _image.color = white;
-        _image.sprite = hightlight ? hightlightSp : normalSp;
+        _image.sprite = hightlight ? hightlightSp : _activeNormalSp;
     }
 
     void TryMatchLetter(char _char)
@@ -106,7 +136,8 @@ public class Slot : MonoBehaviour
         SetTriggerCorrect();
         SoundManager.Instance.PlaySfx(SoundType.Correct);
         letter.state = SlotState.Filled;
-        textComponent.color = Color.black;
+        ApplyTheme(ThemeManager.instance.IsLightMode);
+        //textComponent.color = Color.black;
         IsInteractable = false;
         GameManager.Instance.OnSlotFilled(letter, true);
         GameManager.Instance.OnUpdate();
@@ -126,19 +157,33 @@ public class Slot : MonoBehaviour
             .Append(textComponent.DOFade(1, 0));
     }
 
+
+    public void AutoSelect()
+    {
+        SetHighlight(false);
+        TryMatchLetter(letter._char);
+        UIManager.Instance.WordHintBtn.EnableHintBtn();
+    }
+
     internal void On_Select()
     {
         if (isHighlighted)
         {
+            if (GameManager.Instance.IswordHintActive)
+            {
+                GameManager.Instance.CheckAndFillWord(this);
+                return;
+            }
+
             GameManager.Instance.SetHightLightAll(false);
             SetHighlight(false);
-            Hint.Instance.EnableHintBtn();
+            UIManager.Instance.LetterHintBtn.EnableHintBtn();
             TryMatchLetter(letter._char);
             TutorialController.Instance.CompleteHintTutorial();
             return;
         }
 
-        if(letter.IsLock || letter.IsDualLock)
+        if (letter.IsLock || letter.IsDualLock)
         {
             _lock.transform.DOShakeRotation(1, new Vector3(0, 0, 90), 5, 90, true, ShakeRandomnessMode.Full);
             return;

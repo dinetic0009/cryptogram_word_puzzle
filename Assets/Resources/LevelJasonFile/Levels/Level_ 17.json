@@ -1,0 +1,101 @@
+{
+    "Phrase": "we do not remember days; we remember moments.",
+    "EditedPhrase": "we do n#t reme#b#r days; we #emembe# #o#ents.",
+    "Codes": [
+        {
+            "_char": 119,
+            "_code": 12
+        },
+        {
+            "_char": 101,
+            "_code": 22
+        },
+        {
+            "_char": 100,
+            "_code": 10
+        },
+        {
+            "_char": 111,
+            "_code": 20
+        },
+        {
+            "_char": 110,
+            "_code": 6
+        },
+        {
+            "_char": 116,
+            "_code": 15
+        },
+        {
+            "_char": 114,
+            "_code": 18
+        },
+        {
+            "_char": 109,
+            "_code": 9
+        },
+        {
+            "_char": 98,
+            "_code": 5
+        },
+        {
+            "_char": 97,
+            "_code": 19
+        },
+        {
+            "_char": 121,
+            "_code": 16
+        },
+        {
+            "_char": 115,
+            "_code": 7
+        }
+    ],
+    "States": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+    ]
+}

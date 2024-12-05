@@ -13,13 +13,13 @@ public class Keyboard : Singleton<Keyboard>
     [SerializeField] List<Transform> parents;
     [SerializeField] GameObject interactabeOb;
 
+
     internal List<int> counter = new() { 10, 9, 7 };
     internal List<char> qwertyKeys = new() { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
     int index = 0;
 
     internal List<Key> Keys = new();
     internal Key PrevKey, NextKey;
-
 
     public void Init()
     {
@@ -29,6 +29,15 @@ public class Keyboard : Singleton<Keyboard>
         Keys.ForEach(x => x.SetEnabled());
         SetInteractable(true);
     }
+
+    public void ImplimentTheme(bool islight)
+    {
+        for (int i = 0; i < Keys.Count; i++)
+        {
+            Keys[i].ApplyTheme(islight);
+        }
+    }
+
 
     public bool GetKey(char _char, out Key key)
     {
@@ -56,6 +65,7 @@ public class Keyboard : Singleton<Keyboard>
     [ButtonMethod]
     public void GenerateKeyboeard()
     {
+        bool islighttheme = ThemeManager.instance.IsLightMode;
         Keys = new();
         index = 0;
 
@@ -68,7 +78,9 @@ public class Keyboard : Singleton<Keyboard>
                 var key = Instantiate(keyPrefab, parents[i]);
                 key.Init(qwertyKeys[index]);
                 Keys.Add(key);
+                key.ApplyTheme(islighttheme);
                 index++;
+
             }
         }
 
@@ -80,6 +92,7 @@ public class Keyboard : Singleton<Keyboard>
             GameManager.Instance.ToPrevSlot();
         });
         PrevKey = leftKey;
+        PrevKey.ApplyTheme(islighttheme);
 
         //var rightKey = PrefabUtility.InstantiatePrefab(nextKey, parents[^1]) as Key;
         var rightKey = Instantiate(nextKey, parents[^1]) as Key;
@@ -90,6 +103,7 @@ public class Keyboard : Singleton<Keyboard>
         });
 
         NextKey = rightKey;
+        NextKey.ApplyTheme(islighttheme);
 
     }
 

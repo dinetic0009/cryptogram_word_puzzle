@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15de41204657e49d3808650ca92628a4, type: 3}
   m_Name: Level_ 22
   m_EditorClassIdentifier: 
-  phrase: You become what you believe
-  autherName: Oprah Winfrey
+  phrase: Keep calm and carry on
+  autherName: Winston S. Churchill
   visibilityPercentage: 40
-  singleLockCount: 1
+  singleLockCount: 2
   dualLockCount: 1

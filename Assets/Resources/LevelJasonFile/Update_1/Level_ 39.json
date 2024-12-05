@@ -1,0 +1,114 @@
+{
+    "Phrase": "change your thoughts and you change your world",
+    "EditedPhrase": "#hang# your th##ghts and you #h#nge y&$r wo$ld",
+    "Codes": [
+        {
+            "_char": 99,
+            "_code": 11
+        },
+        {
+            "_char": 104,
+            "_code": 6
+        },
+        {
+            "_char": 97,
+            "_code": 21
+        },
+        {
+            "_char": 110,
+            "_code": 13
+        },
+        {
+            "_char": 103,
+            "_code": 19
+        },
+        {
+            "_char": 101,
+            "_code": 23
+        },
+        {
+            "_char": 121,
+            "_code": 14
+        },
+        {
+            "_char": 111,
+            "_code": 24
+        },
+        {
+            "_char": 117,
+            "_code": 20
+        },
+        {
+            "_char": 114,
+            "_code": 15
+        },
+        {
+            "_char": 116,
+            "_code": 10
+        },
+        {
+            "_char": 115,
+            "_code": 2
+        },
+        {
+            "_char": 100,
+            "_code": 4
+        },
+        {
+            "_char": 119,
+            "_code": 16
+        },
+        {
+            "_char": 108,
+            "_code": 1
+        }
+    ],
+    "States": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        4,
+        3,
+        0,
+        2,
+        0,
+        0,
+        3,
+        0,
+        0
+    ]
+}

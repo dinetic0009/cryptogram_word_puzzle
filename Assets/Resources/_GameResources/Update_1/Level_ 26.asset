@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phrase: You must be the change you wish to see in the world
   autherName: Mahatma Gandhi
-  visibilityPercentage: 38
+  visibilityPercentage: 45
   singleLockCount: 0
   dualLockCount: 2

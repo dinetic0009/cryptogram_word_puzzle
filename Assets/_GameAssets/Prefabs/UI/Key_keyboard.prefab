@@ -35,7 +35,6 @@ RectTransform:
   - {fileID: 5927743187332690026}
   - {fileID: 5877916617204382657}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -141,10 +140,15 @@ MonoBehaviour:
   image: {fileID: 1590856108551690333}
   hightlightImg: {fileID: 8581033613962035851}
   idleColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
+  idleDarkColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.007843138, g: 0.7529412, b: 0, a: 1}
   disableColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 0.78431374}
   normalSp: {fileID: 271092726, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
   disabledSp: {fileID: -1286348485, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
+  normalDarkSp: {fileID: 143218071, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
+  disableDarkSp: {fileID: -1591782973, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
+  _activeNormalSp: {fileID: 0}
+  _activeDisableSp: {fileID: 0}
 --- !u!1 &3290770918564984588
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +180,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1590856108551690323}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -226,6 +229,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1590856108551690323}
     m_Modifications:
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
@@ -345,6 +349,9 @@ PrefabInstance:
       value: Text (TMP)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
 --- !u!114 &5927743187332690025 stripped
 MonoBehaviour:

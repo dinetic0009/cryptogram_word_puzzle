@@ -38,7 +38,6 @@ RectTransform:
   - {fileID: 1678009528396310375}
   - {fileID: 8761357070702141326}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -145,9 +144,12 @@ MonoBehaviour:
   textComponent: {fileID: 6026336166123210536}
   codeTextComponent: {fileID: 6026336166209339012}
   normalSp: {fileID: -306561588, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
+  _normalDarkSp: {fileID: -1355143745, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
   hightlightSp: {fileID: -1982091824, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
   singleLockSp: {fileID: 1381158861, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
   dualLockSp: {fileID: 215668052, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
+  _normalColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
+  _darkModeColor: {r: 1, g: 1, b: 1, a: 1}
   white: {r: 1, g: 1, b: 1, a: 1}
   red: {r: 0.9686275, g: 0.5294118, b: 0.33333334, a: 1}
   green: {r: 0.43921572, g: 0.8862746, b: 0.40784317, a: 1}
@@ -205,7 +207,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1725319450239707441}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -281,7 +282,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1725319450239707441}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -331,6 +331,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1725319450239707441}
     m_Modifications:
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
@@ -474,6 +475,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
 --- !u!114 &6026336166209339012 stripped
 MonoBehaviour:
@@ -496,6 +500,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1725319450239707441}
     m_Modifications:
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
@@ -504,23 +509,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontSize
-      value: 17.8
+      value: 15.35
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontStyle
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.28627452
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.2784314
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.27450982
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontSizeMax
@@ -540,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4282992454
+      value: 3280768140
       objectReference: {fileID: 0}
     - target: {fileID: 4922513790857657357, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -655,6 +664,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3138b5840eea24283a7c4eb1ce12f260, type: 3}
 --- !u!114 &6026336166123210536 stripped
 MonoBehaviour:

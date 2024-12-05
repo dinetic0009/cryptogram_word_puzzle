@@ -19,20 +19,34 @@ public class Key : MonoBehaviour
 
     [Header("")]
     [SerializeField] Color idleColor;
+    [SerializeField] Color idleDarkColor;
     [SerializeField] Color highlightColor;
     [SerializeField] Color disableColor;
-    [Header("")]
+
+    [Header("--button sprites--")]
     [SerializeField] Sprite normalSp;
     [SerializeField] Sprite disabledSp;
+    [SerializeField] Sprite normalDarkSp;
+    [SerializeField] Sprite disableDarkSp;
+
+    [SerializeField, ReadOnly] Sprite _activeNormalSp;
+    [SerializeField, ReadOnly] Sprite _activeDisableSp;
 
     public void Init(char _char)
     {
-        this.Char = _char;
-        image.sprite = normalSp;
-        textComponent.text = $"{_char}";
-        textComponent.color = idleColor;
 
+        this.Char = _char;
+        image.sprite = _activeNormalSp;
+        textComponent.text = $"{_char}";
+        SetNormalColor();
         SetListner(() => On_Click());
+    }
+
+
+    private void Awake()
+    {
+        _activeNormalSp = normalSp;
+        _activeDisableSp = disabledSp;
     }
 
     public void HightLight()
@@ -63,15 +77,48 @@ public class Key : MonoBehaviour
     private void DisableKey()
     {
         btn.interactable = false;
-        image.sprite = disabledSp;
+        image.sprite = _activeDisableSp;
         textComponent.color = disableColor;
     }
 
     public void SetEnabled()
     {
         btn.interactable = true;
-        image.sprite = normalSp;
-        textComponent.color = idleColor;
+        image.sprite = _activeNormalSp;
+        SetNormalColor();
+    }
+
+
+    void SetNormalColor()
+    {
+        bool islight = ThemeManager.instance.IsLightMode;
+        if (islight)
+        {
+            textComponent.color = idleColor;
+            return;
+        }
+
+        textComponent.color = idleDarkColor;
+
+    }
+
+    public void ApplyTheme(bool islight)
+    {
+        if (islight)
+        {
+            _activeNormalSp = normalSp;
+            _activeDisableSp = disabledSp;
+        }
+        else
+        {
+            _activeNormalSp = normalDarkSp;
+            _activeDisableSp = disableDarkSp;
+        }
+
+        if (btn.interactable)
+            image.sprite = _activeNormalSp;
+        else
+            image.sprite = _activeDisableSp;
     }
 
     internal void Click()

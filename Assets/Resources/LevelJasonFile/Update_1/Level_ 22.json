@@ -1,0 +1,78 @@
+{
+    "Phrase": "keep calm and carry on",
+    "EditedPhrase": "keep calm #nd c#rry on",
+    "Codes": [
+        {
+            "_char": 107,
+            "_code": 16
+        },
+        {
+            "_char": 101,
+            "_code": 19
+        },
+        {
+            "_char": 112,
+            "_code": 11
+        },
+        {
+            "_char": 99,
+            "_code": 1
+        },
+        {
+            "_char": 97,
+            "_code": 24
+        },
+        {
+            "_char": 108,
+            "_code": 2
+        },
+        {
+            "_char": 109,
+            "_code": 10
+        },
+        {
+            "_char": 110,
+            "_code": 9
+        },
+        {
+            "_char": 100,
+            "_code": 5
+        },
+        {
+            "_char": 114,
+            "_code": 17
+        },
+        {
+            "_char": 121,
+            "_code": 12
+        },
+        {
+            "_char": 111,
+            "_code": 23
+        }
+    ],
+    "States": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+    ]
+}

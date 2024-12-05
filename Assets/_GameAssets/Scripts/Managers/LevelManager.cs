@@ -21,7 +21,9 @@ public class LevelManager : Singleton<LevelManager>
 
     [Header("")]
     [SerializeField] List<LevelSO> _levels;
+    [SerializeField] List<TextAsset> _levelJasons;
     [SerializeField, ReadOnly] private LevelSO _currentLevel;
+    [SerializeField, ReadOnly] private TextAsset _currentLevelJason;
     [SerializeField, ReadOnly] private int _currenLevelNo;
     [SerializeField, ReadOnly] private int _levelIndex;
     [SerializeField, ReadOnly] private int _levelNoInProgess;
@@ -39,18 +41,30 @@ public class LevelManager : Singleton<LevelManager>
     private void Start()
     {
         _levels = new();
+        _levelJasons = new List<TextAsset>();
+        _currentLevelJason = null;
         _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_1")
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
                     .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Update_1")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
 
         _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Levels")
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
                     .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Levels")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
 
         _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_2")
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
                     .ToList());
-
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Update_2")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
 
         _currenLevelNo = PlayerPrefs.GetInt("Level", 1);
         _levelIndex = PlayerPrefs.GetInt("LevelIndex", 0);
@@ -70,9 +84,16 @@ public class LevelManager : Singleton<LevelManager>
         SetLevelRoad();
     }
 
+
     void Init()
     {
         Keyboard.Instance.Init();
+
+        if (_currentLevelJason != null)
+        {
+            JsonController.Instance.SetPlayerData(_currentLevelJason);
+        }
+
         OnLevelInit?.Invoke(_currentLevel);
         GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Start, _levelNoInProgess + "");
     }
@@ -93,15 +114,21 @@ public class LevelManager : Singleton<LevelManager>
     {
         _levelNoInProgess = Mathf.Clamp(_levelNoInProgess, 1, _levels.Count);
         _currentLevel = _levels[_levelNoInProgess - 1];
+        if (_levelNoInProgess - 1 <= _levelJasons.Count)
+            _currentLevelJason = _levelJasons[_levelNoInProgess - 1];
         Init();
     }
+
 
     public void LoadCurrentLevel()
     {
         _levelNoInProgess = Mathf.Clamp(_levelNoInProgess, 1, _levels.Count);
         _currentLevel = _levels[_levelNoInProgess - 1];
+        if (_levelNoInProgess - 1 <= _levelJasons.Count)
+            _currentLevelJason = _levelJasons[_levelNoInProgess - 1];
         Init();
     }
+
 
     public void CompleteLevel()
     {
@@ -169,6 +196,15 @@ public class LevelManager : Singleton<LevelManager>
 
         if (showCompleteAnimation)
             ShowAnimation();
+
+        Debug.Log("progress level is as " + _levelNoInProgess + "   level jason count  " + _levelJasons.Count);
+        if (_levelNoInProgess <= _levelJasons.Count - 1)
+            _currentLevelJason = _levelJasons[_levelNoInProgess];
+
+        if (_currentLevelJason != null)
+        {
+            JsonController.Instance.SetPlayerData(_currentLevelJason);
+        }
     }
 
     GameObject currentLevelOb = null;

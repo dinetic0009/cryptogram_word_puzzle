@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-	public class AdBreakPopup : MonoBehaviour
+public class AdBreakPopup : MonoBehaviour
 {
-        public GameObject preAdsBreak;
-		public GameObject postAdsBreak;
+    public GameObject preAdsBreak;
+    public GameObject postAdsBreak;
     public GameObject panel;
-		public Text countDownText;
-        int countDown = 4;
-        public int hintsToReward;
-        int counterToShowPurchasePopup = 0;
+    public Text countDownText;
+    int countDown = 4;
+    public int hintsToReward;
+    int counterToShowPurchasePopup = 0;
 
     public void OnShowing()
     {
@@ -25,29 +25,30 @@ using UnityEngine.UI;
     }
 
     IEnumerator startCountDown()
+    {
+        while (countDown != 1)
         {
-            while (countDown != 1)
-            {
-                yield return new WaitForSeconds(1f);
-                countDown--;
-                countDownText.text = countDown.ToString();
-            }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
+            countDown--;
+            countDownText.text = countDown.ToString();
+        }
+        yield return new WaitForSeconds(0.5f);
         AdsMediation.interstitialCallBack += OnInterstitialComplete;
         AdsMediation.instance.ShowInterstial();
     }
 
-        void OnInterstitialComplete()
-        {
-            preAdsBreak.SetActive(false);
-            postAdsBreak.SetActive(true);
+    void OnInterstitialComplete()
+    {
+        preAdsBreak.SetActive(false);
+        postAdsBreak.SetActive(true);
         AdsMediation.interstitialCallBack -= OnInterstitialComplete;
         counterToShowPurchasePopup++;
-        }
+    }
 
-        public void OnDoneClick()
-        {
-        Hint.Instance.GrantHints(1);
+    public void OnDoneClick()
+    {
+        UIManager.Instance.LetterHintBtn.GrantHints(1);
+        UIManager.Instance.WordHintBtn.GrantHints(1);
         UIManager.Instance.setupAdBreakCoroutine();
         panel.SetActive(false);
         if (counterToShowPurchasePopup % 3 == 0)
@@ -60,5 +61,5 @@ using UnityEngine.UI;
 
         }
     }
-  }
+}
 

@@ -1,0 +1,106 @@
+{
+    "Phrase": "injustice anywhere is a threat everywhere.",
+    "EditedPhrase": "inj##tice anywh#r# is a thr##t #v#rywhere.",
+    "Codes": [
+        {
+            "_char": 105,
+            "_code": 20
+        },
+        {
+            "_char": 110,
+            "_code": 9
+        },
+        {
+            "_char": 106,
+            "_code": 18
+        },
+        {
+            "_char": 117,
+            "_code": 22
+        },
+        {
+            "_char": 115,
+            "_code": 2
+        },
+        {
+            "_char": 116,
+            "_code": 7
+        },
+        {
+            "_char": 99,
+            "_code": 12
+        },
+        {
+            "_char": 101,
+            "_code": 21
+        },
+        {
+            "_char": 97,
+            "_code": 19
+        },
+        {
+            "_char": 121,
+            "_code": 8
+        },
+        {
+            "_char": 119,
+            "_code": 17
+        },
+        {
+            "_char": 104,
+            "_code": 11
+        },
+        {
+            "_char": 114,
+            "_code": 10
+        },
+        {
+            "_char": 118,
+            "_code": 6
+        }
+    ],
+    "States": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+    ]
+}

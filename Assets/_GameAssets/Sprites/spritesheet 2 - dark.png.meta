@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 877309269d3b741adaf5191f4562ba57
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_0
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 2034
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f739da71c89dc494c8ef2b1f5ca715b1
+      internalID: -427917770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_1
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 2022
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c77be6696a8548769766a414ecadbf5
+      internalID: -888137111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1946
+        width: 726
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d153eb1bd09d4c5a9e3983c8f553f6a
+      internalID: 1338520205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_3
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 1914
+        width: 117
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc54074116e041988a1fac29f265cda
+      internalID: 680032736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_4
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 2023
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b340a5ac1b2b4480d8128ad18ae1cb53
+      internalID: 863417495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_5
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 1914
+        width: 118
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54a6f8ddce564277b98c64fb4f0fb9a
+      internalID: -742822637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_6
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 1914
+        width: 116
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b37ca0cd7f6c44efb76176ab33fbe16
+      internalID: -345169079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1854
+        width: 726
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e310a6607c14fbbb3a039754960c9f
+      internalID: -2138554334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_8
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 1914
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f285a0d29e8bb4ad184021733810416e
+      internalID: -2142025180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_9
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1920
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26847223ff22d49528ae9ea3db301f20
+      internalID: -1966847398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_10
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 1890
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b854352e5db42bc98a09d0bbf5760f
+      internalID: -1798694699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_11
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 1883
+        width: 59
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2295c5b4fb5445c8d88fdfa59aa170
+      internalID: -411486425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_12
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 1890
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ff1092d50244acd95a38997447f995
+      internalID: 44582929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_13
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 1884
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c188a38f6af884bdaa0be64496b2406e
+      internalID: -97102943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_14
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 1884
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785e907f0feb74dddaa1e542e78ae952
+      internalID: -731278108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1754
+        width: 194
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13929726733747559df62dcfd7320cf
+      internalID: 1216782977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_16
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1756
+        width: 83
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ad949f893ac41398881b14f0f01433
+      internalID: -181206430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_17
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 1806
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e0f6d0d5b3e4bd2a4a6f7e40077be4
+      internalID: -311642920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_18
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1758
+        width: 120
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bec989e1b764607b8ce39626ffd2a4
+      internalID: -2102478685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_19
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 1800
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5c5f7e72fae4d3ea74c5e2482030e0
+      internalID: 473615323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_20
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 1794
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d3351d390ed4d728eb8ac62b689b8c
+      internalID: 1836780014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_21
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1788
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3defa5b88208f40b49e57ae84fed7f9e
+      internalID: 49124015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_22
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 1727
+        width: 91
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f57a75feb6ed41aaa8427c44c8512c0
+      internalID: -1936704687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_23
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1765
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd00959ee528348e0b887346e5b3a732
+      internalID: -762933396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_24
+      rect:
+        serializedVersion: 2
+        x: 2034
+        y: 1759
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7c6a8d9475744d49fb5addcc525a2c
+      internalID: -230307820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_25
+      rect:
+        serializedVersion: 2
+        x: 1976
+        y: 1739
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79b03a359b19425b9dadb9062568760
+      internalID: -1626527584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_26
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 1753
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d78210a42a94ab18b6e19f4201dd2e
+      internalID: 355512874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_27
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 1747
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46df7e8073b304dcaace3555c209eef8
+      internalID: 2082754725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1650
+        width: 192
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84957de11b7754910bd4a8e474537baf
+      internalID: -895877066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_29
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1662
+        width: 82
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340f4b0c3f29f47d880c0b67fdf03576
+      internalID: -1134594365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_30
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 1740
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7145ae3ed9ed04759abf3749ecd6b339
+      internalID: 1670768485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_31
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1008
+        width: 613
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e588609402984044a181fca1ddc260b
+      internalID: 920489375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_32
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 16
+        width: 637
+        height: 974
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08babbb59ac884f139d2c38de95a586f
+      internalID: 1599544272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_33
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 752
+        width: 166
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b81c157cd2c34d6fbffc07fc15912a1
+      internalID: -429889167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_34
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 894
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b385f16442854842843976303744456
+      internalID: 38119947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_35
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 738
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cfa9b8bdfc641ad91e54159d2f56d0
+      internalID: 1468916998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_36
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 713
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21925c9486ef5415a9a92e7b018e0d9f
+      internalID: -1486780144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_37
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 570
+        width: 164
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72537893dea77497997c07992f44d7eb
+      internalID: -50525655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_38
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 532
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a784b4a6d335942fc94de403b5dbd6a5
+      internalID: 972577672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_39
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 556
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c396848e0e7884adab79ece03a95b08b
+      internalID: -316884947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_40
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 389
+        width: 164
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc53694dc1c84d4ba4d4d15dbe12f01
+      internalID: 1754969932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_41
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 351
+        width: 29
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ec34174ed9b43d285b0da54f9d89db
+      internalID: 2024017190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_42
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 374
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6764a818fc08446c5a90dea3110c872e
+      internalID: -1314486679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_43
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 207
+        width: 164
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ce71b4100544c2ea551dd7e4f0d175
+      internalID: -423293183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_44
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 168
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27029cc502d014cba9d2945576b74207
+      internalID: -666989697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_45
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 198
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6e2021dacff4c03b4376aae47988d8
+      internalID: 481044244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_46
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 18
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8786995b36dfa4af992d4b255edfc4c5
+      internalID: -1300120565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 2 - dark_47
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 184
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a45049fd2724ba79957462152152c7
+      internalID: 777439672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spritesheet 2 - dark_0: -427917770
+      spritesheet 2 - dark_1: -888137111
+      spritesheet 2 - dark_10: -1798694699
+      spritesheet 2 - dark_11: -411486425
+      spritesheet 2 - dark_12: 44582929
+      spritesheet 2 - dark_13: -97102943
+      spritesheet 2 - dark_14: -731278108
+      spritesheet 2 - dark_15: 1216782977
+      spritesheet 2 - dark_16: -181206430
+      spritesheet 2 - dark_17: -311642920
+      spritesheet 2 - dark_18: -2102478685
+      spritesheet 2 - dark_19: 473615323
+      spritesheet 2 - dark_2: 1338520205
+      spritesheet 2 - dark_20: 1836780014
+      spritesheet 2 - dark_21: 49124015
+      spritesheet 2 - dark_22: -1936704687
+      spritesheet 2 - dark_23: -762933396
+      spritesheet 2 - dark_24: -230307820
+      spritesheet 2 - dark_25: -1626527584
+      spritesheet 2 - dark_26: 355512874
+      spritesheet 2 - dark_27: 2082754725
+      spritesheet 2 - dark_28: -895877066
+      spritesheet 2 - dark_29: -1134594365
+      spritesheet 2 - dark_3: 680032736
+      spritesheet 2 - dark_30: 1670768485
+      spritesheet 2 - dark_31: 920489375
+      spritesheet 2 - dark_32: 1599544272
+      spritesheet 2 - dark_33: -429889167
+      spritesheet 2 - dark_34: 38119947
+      spritesheet 2 - dark_35: 1468916998
+      spritesheet 2 - dark_36: -1486780144
+      spritesheet 2 - dark_37: -50525655
+      spritesheet 2 - dark_38: 972577672
+      spritesheet 2 - dark_39: -316884947
+      spritesheet 2 - dark_4: 863417495
+      spritesheet 2 - dark_40: 1754969932
+      spritesheet 2 - dark_41: 2024017190
+      spritesheet 2 - dark_42: -1314486679
+      spritesheet 2 - dark_43: -423293183
+      spritesheet 2 - dark_44: -666989697
+      spritesheet 2 - dark_45: 481044244
+      spritesheet 2 - dark_46: -1300120565
+      spritesheet 2 - dark_47: 777439672
+      spritesheet 2 - dark_5: -742822637
+      spritesheet 2 - dark_6: -345169079
+      spritesheet 2 - dark_7: -2138554334
+      spritesheet 2 - dark_8: -2142025180
+      spritesheet 2 - dark_9: -1966847398
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

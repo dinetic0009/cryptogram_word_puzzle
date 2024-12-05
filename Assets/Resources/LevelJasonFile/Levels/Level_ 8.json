@@ -1,0 +1,60 @@
+{
+    "Phrase": "this too shall pass.",
+    "EditedPhrase": "this to# sha## pa#s.",
+    "Codes": [
+        {
+            "_char": 116,
+            "_code": 9
+        },
+        {
+            "_char": 104,
+            "_code": 18
+        },
+        {
+            "_char": 105,
+            "_code": 23
+        },
+        {
+            "_char": 115,
+            "_code": 7
+        },
+        {
+            "_char": 111,
+            "_code": 22
+        },
+        {
+            "_char": 97,
+            "_code": 20
+        },
+        {
+            "_char": 108,
+            "_code": 5
+        },
+        {
+            "_char": 112,
+            "_code": 8
+        }
+    ],
+    "States": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2
+    ]
+}

@@ -16,4 +16,4 @@ MonoBehaviour:
   autherName: Aristotle
   visibilityPercentage: 38
   singleLockCount: 3
-  dualLockCount: 1
+  dualLockCount: 0

@@ -7,8 +7,9 @@ using MyBox;
 using System;
 
 
-public class Hint : Singleton<Hint>
+public class Hint : MonoBehaviour
 {
+    [SerializeField] HintType _type;
     [SerializeField] GameObject counterOb, adOb;
     [SerializeField] TextMeshProUGUI hintCountText;
     [SerializeField] Button btn;
@@ -19,6 +20,15 @@ public class Hint : Singleton<Hint>
     public int HintCount { get => hintCount; }
     public static Action Hint_ShowHint;
 
+    string PrefebName = "HintCount";
+
+    private void Awake()
+    {
+        if (_type == HintType.LetterHint)
+            PrefebName = "HintCount";
+        else
+            PrefebName = "WordHintCount";
+    }
 
     private void Start()
     {
@@ -33,13 +43,13 @@ public class Hint : Singleton<Hint>
     internal void GrantHints(int count)
     {
         hintCount += count;
-        PlayerPrefs.SetInt("HintCount", hintCount);
+        PlayerPrefs.SetInt(PrefebName, hintCount);
         SetVisuals();
     }
 
     private void SetVisuals()
     {
-        hintCount = PlayerPrefs.GetInt("HintCount", 2);
+        hintCount = PlayerPrefs.GetInt(PrefebName, 2);
 
         onAd = hintCount <= 0;
         adOb.SetActive(onAd);
@@ -52,7 +62,7 @@ public class Hint : Singleton<Hint>
         if (!onAd)
         {
             hintCount--;
-            PlayerPrefs.SetInt("HintCount", hintCount);
+            PlayerPrefs.SetInt(PrefebName, hintCount);
             PerformHint();
         }
         else
@@ -67,12 +77,12 @@ public class Hint : Singleton<Hint>
             }
 #endif
         }
-        
+
     }//
 
     void OnReward_Hint(bool isCompleted)
     {
-        if(isCompleted)
+        if (isCompleted)
         {
             GrantHints(1);
         }
@@ -90,9 +100,10 @@ public class Hint : Singleton<Hint>
     {
         SetVisuals();
         btn.interactable = false;
+        if (_type == HintType.WordHint)
+            GameManager.Instance.IswordHintActive = true;
         GameManager.Instance.SetHightLightAll(true);
     }
-
 
     public void EnableHintBtn()
     {
@@ -100,3 +111,11 @@ public class Hint : Singleton<Hint>
     }
 
 }//Class
+
+
+public enum HintType
+{
+    LetterHint,
+    WordHint
+}
+

@@ -44,7 +44,7 @@ public class TutorialController : Singleton<TutorialController>
 
     private void Start()
     {
-        SetRectPosition(blackBg, Vector2.zero ,null, null);
+        SetRectPosition(blackBg, Vector2.zero, null, null);
         keyboard.SetInteractable(false);
     }
 
@@ -99,8 +99,8 @@ public class TutorialController : Singleton<TutorialController>
         var firstFilledLetter = FirstFilledLetter();
 
         var sourceRect = firstFilledLetter.slot.GetComponent<RectTransform>();
-        SetRectPosition(blackBg, Vector2.zero,new(), null);
-        
+        SetRectPosition(blackBg, Vector2.zero, new(), null);
+
         popupText.text = $"A <color={yellow.ToHex()}>digit</color> refers to a letter.\nFor example, <color={yellow.ToHex()}>{firstFilledLetter.code}</color> is <color={yellow.ToHex()}>{char.ToUpper(firstFilledLetter._char)}</color>";
         Set_OnContinue(ChooseCell);
     }
@@ -116,7 +116,7 @@ public class TutorialController : Singleton<TutorialController>
         var sourceRect = SelectedEmptySlot.slot.GetComponent<RectTransform>();
         hand.transform.position = sourceRect.transform.position;
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart);
-        SetRectPosition(blackBg, new Vector2(1.5f,2f), sourceRect, () => { SelectedEmptySlot.slot.Click(); Utils.WaitAndPerform(.2f, ToKeyboard); });
+        SetRectPosition(blackBg, new Vector2(1.5f, 2f), sourceRect, () => { SelectedEmptySlot.slot.Click(); Utils.WaitAndPerform(.2f, ToKeyboard); });
     }
 
     Key selectedKey = null;
@@ -125,7 +125,7 @@ public class TutorialController : Singleton<TutorialController>
         hand.transform.DOKill();
         keyboard.gameObject.SetActive(true);
         keyboard.GetKey(SelectedEmptySlot._char, out selectedKey);
-        hand.transform.DOMove(selectedKey.transform.position, .5f).OnComplete(() => 
+        hand.transform.DOMove(selectedKey.transform.position, .5f).OnComplete(() =>
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart));
         var sourceRect = selectedKey.GetComponent<RectTransform>();
         SetRectPosition(blackBg, Vector2.one, sourceRect, () => { selectedKey.Click(); Utils.WaitAndPerform(.2f, ShowGreenInfo); });
@@ -155,6 +155,7 @@ public class TutorialController : Singleton<TutorialController>
         //popupText.text = $"Decrypt the whole phrase\nGood luck!";
         //Set_OnContinue(EndTutorial);
     }
+
 
     public void EndTutorial()
     {
@@ -193,7 +194,7 @@ public class TutorialController : Singleton<TutorialController>
         hand.transform.position = hintBtn.transform.position;
         hand.transform.DOScale(-.1f, .8f).SetRelative(true).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).SetLoops(-1, LoopType.Restart);
 
-        SetRectPosition(blackBg, new Vector2(1.5f, 2f), hintBtn, () => { Hint.Instance.Click_Tutorial(); ShowHintPopup(); });
+        SetRectPosition(blackBg, new Vector2(1.5f, 2f), hintBtn, () => { UIManager.Instance.LetterHintBtn.Click_Tutorial(); ShowHintPopup(); });
     }
 
     List<GameObject> masks = new();
@@ -212,7 +213,7 @@ public class TutorialController : Singleton<TutorialController>
         blackBg.GetComponent<SoftMask>().ignoreSelfGraphic = true;
 
         masks = new();
-        foreach(Slot slot in slots)
+        foreach (Slot slot in slots)
         {
             var mask = Instantiate(blackBg.GetChild(0), blackBg);
             mask.GetComponent<Image>().SetImagePixelsPerUnit(10f);

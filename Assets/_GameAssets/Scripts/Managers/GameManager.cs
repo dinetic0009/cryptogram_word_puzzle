@@ -23,17 +23,23 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Transform lineParent;
     [SerializeField] GameObject interactableMaskOb;
 
-
     [Header("")]
+    public List<Slot> SlotsObjects;
     public List<Letter> allSlots;
     public List<Word> sameLetterGroups = new();
     public List<Word> words = new();
-
+    public bool _iswordHintActive;
 
     LevelSO level;
     internal string _phrase;
+    [SerializeField] List<int> currentstates;
+    [SerializeField] List<Entry> currentcodes;
     readonly int maxLineLength = 15;
     public static Action TutorialController_ShowTutorial;
+
+    List<Entry> codes;
+
+    public bool IswordHintActive { get => _iswordHintActive; set => _iswordHintActive = value; }
 
     //public bool SetHightLightAll { set => allSlots.Where(x => x.IsEmpty).ForEach(x => x.slot.SetHighlight(value)); }
 
@@ -65,8 +71,8 @@ public class GameManager : Singleton<GameManager>
         //return 1f;
 
 #if UNITY_EDITOR
-                Debug.Log("Plateform: " + Application.platform);
-                return 1f;
+        Debug.Log("Plateform: " + Application.platform);
+        return 1f;
 #else
         if (Application.platform == RuntimePlatform.IPhonePlayer)
         {
@@ -92,6 +98,9 @@ public class GameManager : Singleton<GameManager>
 
     public void SetLevel(LevelSO level)
     {
+
+        bool islight = ThemeManager.instance.IsLightMode;
+        SlotsObjects = new List<Slot>();
         this.level = level;
         phrase = level.phrase;
         allSlots = new();
@@ -99,7 +108,6 @@ public class GameManager : Singleton<GameManager>
 
         _phrase = phrase;
         _phrase = _phrase.ToLower();
-
         InitCodes(_phrase);
 
         var lines = SplitSentenceIntoLines(_phrase);
@@ -118,6 +126,9 @@ public class GameManager : Singleton<GameManager>
                 var letter = lines[i][j];
 
                 var slot = Instantiate(slotPrefab, _line.transform);
+
+                slot.ApplyTheme(islight);
+
                 var code = GetCode(letter);
                 var _slot = new Letter(slot, letter, code);
 
@@ -135,7 +146,7 @@ public class GameManager : Singleton<GameManager>
                 }
 
                 allSlots.Add(_slot);
-
+                SlotsObjects.Add(slot);
             }
 
             if (!word.letters.IsNullOrEmpty())
@@ -158,6 +169,41 @@ public class GameManager : Singleton<GameManager>
         Utils.WaitAndPerform(1.2f, () => TutorialController_ShowTutorial?.Invoke());
     }
 
+
+    public void CheckAndFillWord(Slot _selectedslot)
+    {
+        _iswordHintActive = false;
+        SetHightLightAll(false);
+        for (int i = 0; i < words.Count; i++)
+        {
+            bool isfind = false;
+            for (int j = 0; j < words[i].letters.Count; j++)
+            {
+                if (_selectedslot == words[i].letters[j].slot)
+                {
+                    FilledWord(words[i]);
+                    break;
+                }
+            }
+
+            if (isfind)
+                break;
+        }
+    }
+
+
+    void FilledWord(Word _selectedword)
+    {
+
+        for (int i = 0; i < _selectedword.letters.Count; i++)
+        {
+            if (_selectedword.letters[i].IsEmpty)
+                _selectedword.letters[i].slot.AutoSelect();
+        }
+    }
+
+
+
     int GetCode(char letter)
     {
         if (!char.IsLetter(letter))
@@ -166,15 +212,16 @@ public class GameManager : Singleton<GameManager>
         return codes.Find(x => x._char == letter)._code;
     }
 
-    List<Entry> codes;
+
+
     void InitCodes(string phrase)
     {
         if (JsonController.Instance.playerData.hasCodes)
         {
+            currentcodes = JsonController.Instance.playerData.Codes;
             codes = JsonController.Instance.playerData.Codes;
             return;
         }
-
 
         var distinctList = phrase.Where(char.IsLetter).Distinct().ToList();
         codes = new();
@@ -212,13 +259,15 @@ public class GameManager : Singleton<GameManager>
 
     void SetStates()
     {
+
         if (JsonController.Instance.playerData.hasStates)
         {
+
+            currentstates = JsonController.Instance.playerData.States;
             var states = JsonController.Instance.playerData.States;
             allSlots.ForEach((x, i) =>
             {
                 x.SetState((SlotState)states[i]);
-
                 if ((SlotState)states[i] is SlotState.Filled)
                     OnSlotFilled(x);
             });
@@ -227,7 +276,8 @@ public class GameManager : Singleton<GameManager>
 
         var totalCount = allSlots.Where(x => !x.IsSpace).ToList().Count;
         var preFilledCount = (level.visibilityPercentage * totalCount) / 100;
-        //Debug.Log($"{level.visibilityPercentage}% of {totalCount} = {preFilledCount}");
+
+        Debug.Log($"{level.visibilityPercentage}% of {totalCount} = {preFilledCount}");
 
         var _sameLetterGroups = sameLetterGroups.Copy();
         _sameLetterGroups.ForEach(x => x.letters.Shuffle());
@@ -544,7 +594,6 @@ public class Letter
     {
         slot.Init(this);
     }
-
 
     public void SetOneSideUnlock()
     {
