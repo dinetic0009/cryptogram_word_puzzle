@@ -129,6 +129,25 @@ public class UIManager : Singleton<UIManager>
         if (!canplaymusic)
             return;
 
+        if (PlayerPrefs.HasKey("selectedtheme") && PlayerPrefs.HasKey("selectedclip"))
+        {
+            int themeindex = PlayerPrefs.GetInt("selectedtheme");
+            GameMusicData data = _gameMusicClips[themeindex];
+            string clipname = PlayerPrefs.GetString("selectedclip");
+
+            for (int i = 0; i < data.ClipData.Count; i++)
+            {
+                if (clipname == data.ClipData[i].name)
+                {
+                    SelectMusicType(data);
+                    SetMusicClip(data.ClipData[i].name, data.ClipData[i], null);
+                    break;
+                }
+            }
+
+            return;
+        }
+
         for (int i = 0; i < _gameMusicClips.Count; i++)
         {
 
@@ -136,6 +155,7 @@ public class UIManager : Singleton<UIManager>
             {
                 SelectMusicType(_gameMusicClips[i]);
                 SetMusicClip(_gameMusicClips[i].ClipData[0].name, _gameMusicClips[i].ClipData[0], null);
+                PlayerPrefs.SetInt("selectedtheme", i);
                 break;
             }
             else if (_gameMusicClips[i].Type == _defaultMusic)
@@ -483,6 +503,7 @@ public class UIManager : Singleton<UIManager>
                 bar.OnplayMusic(true);
         }
         _musicObjectPanel.SetActive(true);
+        PlayerPrefs.SetInt("selectedtheme", index);
     }
 
     void SelectMusicType(GameMusicData data)
@@ -494,13 +515,17 @@ public class UIManager : Singleton<UIManager>
 
     public void SetMusicClip(string clipname, AudioClip clip, MusicBar bar)
     {
+
         if (clipname != PlayingMusicName)
         {
             _musicSrc.Stop();
             _musicSrc.clip = clip;
 
             if (canplaymusic)
+            {
                 _musicSrc.Play();
+                PlayerPrefs.SetString("selectedclip", clipname);
+            }
             PlayingMusicName = clipname;
             if (_currentMusicBar != null)
                 _currentMusicBar.OnplayMusic(false);

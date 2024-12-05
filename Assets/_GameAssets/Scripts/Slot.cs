@@ -81,6 +81,8 @@ public class Slot : MonoBehaviour
         _button.onClick?.Invoke();
     }
 
+
+
     public void ApplyTheme(bool isLight)
     {
         Sprite usesprite = normalSp;

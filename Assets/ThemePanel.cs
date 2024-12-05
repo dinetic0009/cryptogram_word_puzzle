@@ -14,12 +14,18 @@ public class ThemePanel : MonoBehaviour
 
     private void OnEnable()
     {
+        ApplyTheme();
+    }
+
+    public void ApplyTheme()
+    {
         bool islight = ThemeManager.instance.IsLightMode;
         ImplimentThemeProperties(islight);
         ImplimentColorsProperties(islight);
         if (handler != null)
             handler.Invoke();
     }
+
 
 
     void ImplimentThemeProperties(bool islight)

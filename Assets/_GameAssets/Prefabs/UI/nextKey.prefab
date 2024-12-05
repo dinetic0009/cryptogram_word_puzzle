@@ -155,17 +155,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495ce07e1e69846dabf86bc5d57b6292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   textComponent: {fileID: 0}
   btn: {fileID: 2420741240684660110}
   image: {fileID: 6553157063012629851}
   hightlightImg: {fileID: 0}
   idleColor: {r: 0, g: 0, b: 0, a: 0}
+  idleDarkColor: {r: 0, g: 0, b: 0, a: 0}
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   disableColor: {r: 0, g: 0, b: 0, a: 0}
   normalSp: {fileID: 271092726, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
   disabledSp: {fileID: -1286348485, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
   normalDarkSp: {fileID: 143218071, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
   disableDarkSp: {fileID: -1591782973, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
+  _activeNormalSp: {fileID: 0}
+  _activeDisableSp: {fileID: 0}
 --- !u!1 &8078022250914507675
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,10 +202,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6553157063012629854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1.3}
+  m_SizeDelta: {x: 45.2169, y: 31.6174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8416030015324207748
 CanvasRenderer:
@@ -231,9 +235,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 567605524, guid: ac5664b7f4bc34b12bed34f031ac29d3, type: 3}
+  m_Sprite: {fileID: -1226035220, guid: c787740b485d645759c70762aa6ffaa8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

@@ -13,13 +13,15 @@ public class Keyboard : Singleton<Keyboard>
     [SerializeField] List<Transform> parents;
     [SerializeField] GameObject interactabeOb;
 
-
+    [SerializeField] List<Key> _arrowKeys;
     internal List<int> counter = new() { 10, 9, 7 };
     internal List<char> qwertyKeys = new() { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
     int index = 0;
 
     internal List<Key> Keys = new();
     internal Key PrevKey, NextKey;
+
+    public List<Key> ArrowKeys { get => _arrowKeys; }
 
     public void Init()
     {
@@ -65,6 +67,7 @@ public class Keyboard : Singleton<Keyboard>
     [ButtonMethod]
     public void GenerateKeyboeard()
     {
+        _arrowKeys = new List<Key>();
         bool islighttheme = ThemeManager.instance.IsLightMode;
         Keys = new();
         index = 0;
@@ -86,6 +89,7 @@ public class Keyboard : Singleton<Keyboard>
 
         //var leftKey = PrefabUtility.InstantiatePrefab(prevKey, parents[^1]) as Key;
         var leftKey = Instantiate(prevKey, parents[^1]);
+        _arrowKeys.Add(leftKey);
         leftKey.SetListner(delegate
         {
             SoundManager.Instance.PlaySfx(SoundType.Keyboard);
@@ -96,6 +100,7 @@ public class Keyboard : Singleton<Keyboard>
 
         //var rightKey = PrefabUtility.InstantiatePrefab(nextKey, parents[^1]) as Key;
         var rightKey = Instantiate(nextKey, parents[^1]) as Key;
+        _arrowKeys.Add(rightKey);
         rightKey.SetListner(delegate
         {
             SoundManager.Instance.PlaySfx(SoundType.Keyboard);

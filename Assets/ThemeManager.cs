@@ -33,6 +33,25 @@ public class ThemeManager : MonoBehaviour
         ImplimentThemeProperties();
         ImplimentColorsProperties();
         _keyboardObject.ImplimentTheme(_isLightMode);
+
+        ThemePanel[] ActivePanels = FindObjectsOfType<ThemePanel>();
+        for (int i = 0; i < ActivePanels.Length; i++)
+        {
+            ActivePanels[i].ApplyTheme();
+        }
+
+
+        List<Slot> Slots = GameManager.Instance.SlotsObjects;
+        for (int i = 0; i < Slots.Count; i++)
+        {
+            Slots[i].ApplyTheme(_isLightMode);
+        }
+
+        List<Key> ArrowKeys = Keyboard.Instance.ArrowKeys;
+        for (int i = 0; i < ArrowKeys.Count; i++)
+        {
+            ArrowKeys[i].ApplyTheme(_isLightMode);
+        }
     }
 
     void ImplimentThemeProperties()

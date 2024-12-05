@@ -12,6 +12,7 @@ using TMPro;
 public class Key : MonoBehaviour
 {
     internal char Char;
+    [SerializeField] KeyBoard_KeyType _type;
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] Button btn;
     [SerializeField] Image image;
@@ -32,6 +33,8 @@ public class Key : MonoBehaviour
     [SerializeField, ReadOnly] Sprite _activeNormalSp;
     [SerializeField, ReadOnly] Sprite _activeDisableSp;
 
+    public KeyBoard_KeyType Type { get => _type; }
+
     public void Init(char _char)
     {
 
@@ -41,7 +44,6 @@ public class Key : MonoBehaviour
         SetNormalColor();
         SetListner(() => On_Click());
     }
-
 
     private void Awake()
     {
@@ -92,6 +94,22 @@ public class Key : MonoBehaviour
     void SetNormalColor()
     {
         bool islight = ThemeManager.instance.IsLightMode;
+
+        if (_type == KeyBoard_KeyType.ArrowKey && transform.childCount > 0 && transform.GetChild(0).GetComponent<Image>())
+        {
+            transform.GetChild(0).GetComponent<Image>();
+            transform.GetChild(0).GetComponent<Image>().color = idleColor;
+            if (!islight)
+                transform.GetChild(0).GetComponent<Image>().color = idleDarkColor;
+            return;
+        }
+
+        if (textComponent == null)
+            return;
+
+        if (textComponent.color == highlightColor || textComponent.color == disableColor)
+            return;
+
         if (islight)
         {
             textComponent.color = idleColor;
@@ -99,7 +117,6 @@ public class Key : MonoBehaviour
         }
 
         textComponent.color = idleDarkColor;
-
     }
 
     public void ApplyTheme(bool islight)
@@ -119,6 +136,8 @@ public class Key : MonoBehaviour
             image.sprite = _activeNormalSp;
         else
             image.sprite = _activeDisableSp;
+
+        SetNormalColor();
     }
 
     internal void Click()
@@ -147,4 +166,10 @@ public class Key : MonoBehaviour
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() => onClickCallback?.Invoke());
     }
+}
+
+public enum KeyBoard_KeyType
+{
+    CharKey,
+    ArrowKey
 }
