@@ -1,26 +1,26 @@
 {
     "Phrase": "change your thoughts and you change your world",
-    "EditedPhrase": "#hang# your th##ghts and you #h#nge y&$r wo$ld",
+    "EditedPhrase": "#hang# your th#$ghts and you ch#$ge y#$r wo#ld",
     "Codes": [
         {
             "_char": 99,
-            "_code": 11
+            "_code": 5
         },
         {
             "_char": 104,
-            "_code": 6
+            "_code": 3
         },
         {
             "_char": 97,
-            "_code": 21
+            "_code": 24
         },
         {
             "_char": 110,
-            "_code": 13
+            "_code": 10
         },
         {
             "_char": 103,
-            "_code": 19
+            "_code": 16
         },
         {
             "_char": 101,
@@ -28,39 +28,39 @@
         },
         {
             "_char": 121,
-            "_code": 14
+            "_code": 6
         },
         {
             "_char": 111,
-            "_code": 24
+            "_code": 19
         },
         {
             "_char": 117,
-            "_code": 20
+            "_code": 21
         },
         {
             "_char": 114,
-            "_code": 15
+            "_code": 17
         },
         {
             "_char": 116,
-            "_code": 10
+            "_code": 15
         },
         {
             "_char": 115,
-            "_code": 2
-        },
-        {
-            "_char": 100,
             "_code": 4
         },
         {
+            "_char": 100,
+            "_code": 9
+        },
+        {
             "_char": 119,
-            "_code": 16
+            "_code": 18
         },
         {
             "_char": 108,
-            "_code": 1
+            "_code": 11
         }
     ],
     "States": [
@@ -79,35 +79,35 @@
         0,
         0,
         1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
         1,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
+        3,
         0,
         0,
         2,
-        0,
-        0,
-        0,
-        2,
-        1,
         0,
         1,
-        0,
-        0,
-        0,
-        2,
-        0,
-        4,
         3,
         0,
         2,
         0,
         0,
-        3,
+        1,
         0,
         0
     ]

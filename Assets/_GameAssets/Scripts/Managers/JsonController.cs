@@ -5,6 +5,8 @@ using MyBox;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using DG.Tweening;
 using Random = UnityEngine.Random;
 
 public class JsonController : Singleton<JsonController>
@@ -25,6 +27,12 @@ public class JsonController : Singleton<JsonController>
     [Space(10)]
     [Header("# empty_____ $ lock_____ & Double Locked")]
     [SerializeField, TextArea] string EditedPhrase;
+
+
+    [Header(" --- debug things --- ")]
+    public bool fileDataSame;
+    public string WrongFilename;
+    public JasonPlayerData testjasondata;
 
     public void OnEnable()
     {
@@ -231,10 +239,64 @@ public class JsonController : Singleton<JsonController>
         EditedPhrase = JasonFiledata.EditedPhrase;
     }
 
-    [ButtonMethod]
     public void ResetJasonData()
     {
         PlayerPrefs.SetString("user_data", "");
+    }
+
+
+    [ButtonMethod]
+    public void IsPhraseDataSame()
+    {
+        fileDataSame = true;
+        WrongFilename = "";
+        testjasondata = new JasonPlayerData();
+        List<LevelSO> _levels = new List<LevelSO>();
+        List<TextAsset> _levelJasons = new List<TextAsset>();
+
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_1")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Update_1")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
+
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Levels")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Levels")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
+
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_2")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Update_2")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
+        if (_levels.Count != _levelJasons.Count)
+            Debug.Log("count of file  is not equal");
+
+        for (int i = 0; i < _levels.Count; i++)
+        {
+
+            if (i < _levelJasons.Count)
+            {
+                testjasondata = JsonUtility.FromJson<JasonPlayerData>(_levelJasons[i].ToString());
+                if (testjasondata.EditedPhrase.Length != _levels[i].phrase.Length)
+                {
+                    fileDataSame = false;
+                    WrongFilename = _levels[i].name;
+                    break;
+                }
+            }
+        }
+
+        if (fileDataSame)
+            testjasondata = new JasonPlayerData();
     }
 
 }//Class
