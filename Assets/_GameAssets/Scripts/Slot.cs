@@ -74,13 +74,14 @@ public class Slot : MonoBehaviour
             SoundManager.Instance.PlaySfx(SoundType.Select);
             On_Select();
         });
+
+        ApplyTheme(ThemeManager.instance.IsLightMode);
     }
 
     internal void Click()
     {
         _button.onClick?.Invoke();
     }
-
 
 
     public void ApplyTheme(bool isLight)
@@ -102,6 +103,15 @@ public class Slot : MonoBehaviour
         textComponent.color = useColor;
         codeTextComponent.color = useColor;
         SetHighlight(isHighlighted);
+
+
+        if (!char.IsLetter(letter._char))
+        {
+            Color clr = Color.white;
+            clr.a = 0;
+            _image.color = clr;
+        }
+
     }
 
     bool isHighlighted = false;

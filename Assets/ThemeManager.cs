@@ -22,12 +22,38 @@ public class ThemeManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        _isLightMode = true;
+
+        if (!PlayerPrefs.HasKey("thememode"))
+        {
+            _isLightMode = true;
+        }
+        else
+        {
+            _isLightMode = PlayerPrefs.GetInt("thememode") == 1;
+        }
+
+        Invoke("InitilizeTheme", 0.15f);
+    }
+
+
+    public void InitilizeTheme()
+    {
+
+        _themebtn.transform.GetChild(0).gameObject.SetActive(_isLightMode);
+        _themebtn.transform.GetChild(1).gameObject.SetActive(!_isLightMode);
+        ImplimentThemeProperties();
+        ImplimentColorsProperties();
+        _keyboardObject.ImplimentTheme(_isLightMode);
     }
 
     public void OnChangeTheme()
     {
         _isLightMode = !_isLightMode;
+
+        PlayerPrefs.SetInt("thememode", 1);
+        if (!_isLightMode)
+            PlayerPrefs.SetInt("thememode", 0);
+
         _themebtn.transform.GetChild(0).gameObject.SetActive(_isLightMode);
         _themebtn.transform.GetChild(1).gameObject.SetActive(!_isLightMode);
         ImplimentThemeProperties();
@@ -39,7 +65,6 @@ public class ThemeManager : MonoBehaviour
         {
             ActivePanels[i].ApplyTheme();
         }
-
 
         List<Slot> Slots = GameManager.Instance.SlotsObjects;
         for (int i = 0; i < Slots.Count; i++)

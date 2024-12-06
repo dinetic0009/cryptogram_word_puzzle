@@ -33,6 +33,8 @@ public class Key : MonoBehaviour
     [SerializeField, ReadOnly] Sprite _activeNormalSp;
     [SerializeField, ReadOnly] Sprite _activeDisableSp;
 
+    [SerializeField] bool isBtnDisable;
+
     public KeyBoard_KeyType Type { get => _type; }
 
     public void Init(char _char)
@@ -81,6 +83,7 @@ public class Key : MonoBehaviour
         btn.interactable = false;
         image.sprite = _activeDisableSp;
         textComponent.color = disableColor;
+        isBtnDisable = true;
     }
 
     public void SetEnabled()
@@ -107,7 +110,7 @@ public class Key : MonoBehaviour
         if (textComponent == null)
             return;
 
-        if (textComponent.color == highlightColor || textComponent.color == disableColor)
+        if (textComponent.color == highlightColor || !btn.interactable)
             return;
 
         if (islight)

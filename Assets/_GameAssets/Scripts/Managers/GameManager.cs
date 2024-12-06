@@ -127,7 +127,7 @@ public class GameManager : Singleton<GameManager>
 
                 var slot = Instantiate(slotPrefab, _line.transform);
 
-                slot.ApplyTheme(islight);
+                //slot.ApplyTheme(islight);
 
                 var code = GetCode(letter);
                 var _slot = new Letter(slot, letter, code);

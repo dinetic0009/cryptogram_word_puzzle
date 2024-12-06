@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1764470725}
   m_Direction: 2
   m_Value: -0.00000023475071
-  m_Size: 0.81944454
+  m_Size: 0.8191398
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -50925,46 +50925,44 @@ MonoBehaviour:
     hasStates: 0
     Codes: []
     States: 
-  SourceLevel: {fileID: 11400000, guid: 0b778a13ad8614dd2b2a584e0311c437, type: 2}
+  SourceLevel: {fileID: 11400000, guid: 66b393ad6ac364f1182b362e7ce9fdea, type: 2}
   MainFolderName: LevelJasonFile
-  InnerFolderName: Levels
+  InnerFolderName: Update_1
   JasonFiledata:
-    Phrase: what goes around comes around.
-    EditedPhrase: what go## arou#d com## arou#d.
+    Phrase: you become what you believe
+    EditedPhrase: you be#ome that you b#lieve
     Codes:
+    - _char: 121
+      _code: 17
+    - _char: 111
+      _code: 21
+    - _char: 117
+      _code: 23
+    - _char: 98
+      _code: 7
+    - _char: 101
+      _code: 20
+    - _char: 99
+      _code: 3
+    - _char: 109
+      _code: 1
     - _char: 119
       _code: 13
     - _char: 104
-      _code: 6
-    - _char: 97
-      _code: 20
-    - _char: 116
-      _code: 19
-    - _char: 103
-      _code: 5
-    - _char: 111
-      _code: 23
-    - _char: 101
-      _code: 24
-    - _char: 115
-      _code: 7
-    - _char: 114
-      _code: 1
-    - _char: 117
-      _code: 21
-    - _char: 110
-      _code: 4
-    - _char: 100
-      _code: 17
-    - _char: 99
       _code: 10
-    - _char: 109
-      _code: 15
-    States: 000000000000000000000000000000000200000000000000000000000100000001000000020000000000000000000000000000000000000001000000000000000200000000000000000000000000000001000000010000000200000000000000000000000000000000000000010000000000000002000000
-  _jasonfile: {fileID: 4900000, guid: 9efd5c29221344a278292c33d2f2317b, type: 3}
-  EditedPhrase: '
-
-'
+    - _char: 97
+      _code: 19
+    - _char: 116
+      _code: 16
+    - _char: 108
+      _code: 4
+    - _char: 105
+      _code: 24
+    - _char: 118
+      _code: 6
+    States: 000000000000000000000000020000000000000000000000010000000000000000000000000000000200000000000000000000000000000000000000020000000000000000000000000000000200000000000000010000000000000000000000000000000000000000000000
+  _jasonfile: {fileID: 4900000, guid: 17e44e7ca9978462f971a9d1c177edcd, type: 3}
+  EditedPhrase: you be#ome that you b#lieve
   fileDataSame: 1
   WrongFilename: 
   testjasondata:
@@ -64390,7 +64388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -115}
+  m_AnchoredPosition: {x: 0, y: -114.999985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284172560
