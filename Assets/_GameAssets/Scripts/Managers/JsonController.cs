@@ -225,9 +225,9 @@ public class JsonController : Singleton<JsonController>
         string resourcePath = MainFolderName + "/" + InnerFolderName + "/" + SourceLevel.name;
 
         _jasonfile = Resources.Load<TextAsset>(resourcePath);
-
+#if UNITY_EDITOR
         UnityEditor.AssetDatabase.Refresh();
-
+#endif
         //Debug.Log($"JSON file saved to: {filePath}" + "                      --------------  " + $"jason file pathe : {resourcePath}");
     }
 
