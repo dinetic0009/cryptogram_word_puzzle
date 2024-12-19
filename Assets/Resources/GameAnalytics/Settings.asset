@@ -26,21 +26,21 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - 030ede6647b247cf43a3f2f252499618
+  - a3b5a711eeb627f436c140de93564328
   secretKey:
-  - 4d07b7eee5e3daf139b203d426d0e348c3d48231
+  - b701e27974d750a8ae122a634f5033c76c16ad95
   Build:
-  - 1.1
+  - 1.0
   SelectedPlatformOrganization:
   - AAM GAMES LTD
   SelectedPlatformStudio:
-  - AAM Games
+  - Amazon AAM
   SelectedPlatformGame:
-  - Perfect Fit ASMR
-  SelectedPlatformGameID: 6c730400
+  - Cryptogram AMZ
+  SelectedPlatformGameID: f6b30400
   SelectedOrganization: 01000000
-  SelectedStudio: 01000000
-  SelectedGame: 06000000
+  SelectedStudio: 02000000
+  SelectedGame: 01000000
   NewVersion: 7.3.24
   Changes: '7.3.24
 
@@ -231,7 +231,7 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
-  Platforms: 08000000
+  Platforms: 0b000000
   CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0

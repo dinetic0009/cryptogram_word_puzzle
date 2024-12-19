@@ -59,10 +59,10 @@ public class AdsMediation : MonoBehaviour
     private const string RewardedInterstitialAdUnitId = "";
     private const string MRecAdUnitId = "";
 #else // UNITY_ANDROID
-    private const string InterstitialAdUnitId = "740c0ac5fd292d31";
-    private const string RewardedAdUnitId = "68e3579fd4414e8a";
+    private const string BannerAdUnitId = "cb7dc179362544f1";
+    private const string InterstitialAdUnitId = "ee64163483c346a4";
+    private const string RewardedAdUnitId = "50a47b40ce17e60f";
     private const string RewardedInterstitialAdUnitId = "";
-    private const string BannerAdUnitId = "1e5e2b1d82c81184";
     private const string MRecAdUnitId = "";
 #endif
 
@@ -667,7 +667,7 @@ public class AdsMediation : MonoBehaviour
             {
                 CountriesAPIData ipApiData = CountriesAPIData.CreateFromJSON(webRequest.downloadHandler.text);
                 Debug.LogError(ipApiData.country_name);
-                //ipApiData.country_name = "Russia";
+                ipApiData.country_name = "Russia";
                 if (CountriesAPIData.IsGoogleSupportedCountry(ipApiData.country_name))
                 {
                     InitializeGoogleAds();

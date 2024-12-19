@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "com.applovin.mediation.adapters.vungle.android": {
+      "version": "7040201.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unity.packages.applovin.com"
+    },
+    "com.applovin.mediation.adapters.vungle.ios": {
+      "version": "7040300.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unity.packages.applovin.com"
+    },
+    "com.applovin.mediation.ads": {
+      "version": "8.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.182"
+      },
+      "url": "https://unity.packages.applovin.com"
+    },
     "com.coffee.ui-effect": {
       "version": "https://github.com/mob-sakai/UIEffect.git",
       "depth": 0,
@@ -25,6 +48,13 @@
         "com.unity.ugui": "1.0.0"
       },
       "hash": "cbff7090303fac1067f69654ede33d11e2ccd0c1"
+    },
+    "com.google.external-dependency-manager": {
+      "version": "1.2.182",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.unity.2d.animation": {
       "version": "7.1.1",

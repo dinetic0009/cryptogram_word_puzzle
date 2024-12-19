@@ -49,7 +49,6 @@ MonoBehaviour:
         required: 0
       testMode: 0
       testDevice: 
-      debugGeography: 0
     directedForChildren: 0
   iOSAdvertiser:
     advertiser: 20
@@ -84,9 +83,8 @@ MonoBehaviour:
         id: ca-app-pub-8451768180038920/4861152544
         displayName: App Open ID
         required: 1
-      testMode: 0
+      testMode: 1
       testDevice: 
-      debugGeography: 0
     directedForChildren: 0
   debugMode: 0
   enableATT: 1
