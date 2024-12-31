@@ -14,6 +14,11 @@ public class Slot : MonoBehaviour
     [SerializeField] Sprite normalSp, _normalDarkSp, hightlightSp;
     [SerializeField] Sprite singleLockSp, dualLockSp;
 
+    [Header(" -- Number data -- ")]
+    [SerializeField] float _emptyScaleFactor;
+    [SerializeField] float _popTime = 0.5f;
+    private Vector3 InitialScale;
+
     [Header("Text Colors")]
     [SerializeField] Color _normalColor;
     [SerializeField] Color _darkModeColor;
@@ -76,6 +81,8 @@ public class Slot : MonoBehaviour
         });
 
         ApplyTheme(ThemeManager.instance.IsLightMode);
+        InitialScale = transform.localScale;
+        SetSlotScale();
     }
 
     internal void Click()
@@ -111,7 +118,18 @@ public class Slot : MonoBehaviour
             clr.a = 0;
             _image.color = clr;
         }
+    }
 
+    public void SetSlotScale()
+    {
+        if (letter.state == SlotState.Empty)
+        {
+            transform.DOScale(InitialScale * _emptyScaleFactor, _popTime).SetEase(Ease.Linear);
+        }
+        else
+        {
+            transform.DOScale(InitialScale, _popTime).SetEase(Ease.Linear);
+        }
     }
 
     bool isHighlighted = false;
@@ -153,6 +171,7 @@ public class Slot : MonoBehaviour
         IsInteractable = false;
         GameManager.Instance.OnSlotFilled(letter, true);
         GameManager.Instance.OnUpdate();
+        SetSlotScale();
     }
 
     Sequence seq;
