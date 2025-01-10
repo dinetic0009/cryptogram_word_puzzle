@@ -1,0 +1,78 @@
+{
+    "Phrase": "all men are created equal.",
+    "EditedPhrase": "all men are cr##ted equa#.",
+    "Codes": [
+        {
+            "_char": 97,
+            "_code": 19
+        },
+        {
+            "_char": 108,
+            "_code": 13
+        },
+        {
+            "_char": 109,
+            "_code": 8
+        },
+        {
+            "_char": 101,
+            "_code": 22
+        },
+        {
+            "_char": 110,
+            "_code": 17
+        },
+        {
+            "_char": 114,
+            "_code": 16
+        },
+        {
+            "_char": 99,
+            "_code": 18
+        },
+        {
+            "_char": 116,
+            "_code": 1
+        },
+        {
+            "_char": 100,
+            "_code": 14
+        },
+        {
+            "_char": 113,
+            "_code": 4
+        },
+        {
+            "_char": 117,
+            "_code": 24
+        }
+    ],
+    "States": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+    ]
+}

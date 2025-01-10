@@ -224,7 +224,6 @@ public class TutorialController : Singleton<TutorialController>
         }
     }
 
-
     internal void CompleteHintTutorial()
     {
         masks.ForEach(x => x.SetActive(false));

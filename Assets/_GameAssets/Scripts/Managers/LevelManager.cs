@@ -43,6 +43,14 @@ public class LevelManager : Singleton<LevelManager>
         _levels = new();
         _levelJasons = new List<TextAsset>();
         _currentLevelJason = null;
+
+        _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_3")
+                   .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                   .ToList());
+        _levelJasons.AddRange(Resources.LoadAll<TextAsset>("LevelJasonFile/Update_3")
+                    .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
+                    .ToList());
+
         _levels.AddRange(Resources.LoadAll<LevelSO>("_GameResources/Update_1")
                     .OrderBy(e => int.Parse(Regex.Match(e.name, @"-?\d+").Value))
                     .ToList());

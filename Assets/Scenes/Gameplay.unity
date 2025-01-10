@@ -1790,7 +1790,6 @@ RectTransform:
   - {fileID: 59676011}
   - {fileID: 1090607508}
   - {fileID: 4391363377132857108}
-  - {fileID: 784786053}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4949,8 +4948,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764470726}
   m_HandleRect: {fileID: 1764470725}
   m_Direction: 2
-  m_Value: 1.015749
-  m_Size: 0.78145695
+  m_Value: -0.0000016645946
+  m_Size: 0.7742565
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -36013,82 +36012,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &784786052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 784786053}
-  - component: {fileID: 784786055}
-  - component: {fileID: 784786054}
-  m_Layer: 5
-  m_Name: bg
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &784786053
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784786052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 62438507}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -216, y: 264}
-  m_SizeDelta: {x: 305.1453, y: 542.4805}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &784786054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784786052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 576fa912d893c4e1db9a7ad8109b7c2c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &784786055
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784786052}
-  m_CullTransparentMesh: 1
 --- !u!1001 &790218067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50729,40 +50652,44 @@ MonoBehaviour:
     hasStates: 0
     Codes: []
     States: 
-  SourceLevel: {fileID: 11400000, guid: d8382c936b69744b4890c0105a8e8e9a, type: 2}
+  SourceLevel: {fileID: 11400000, guid: a92348681c25a41999beeaefd691f04b, type: 2}
   MainFolderName: LevelJasonFile
-  InnerFolderName: Update_1
+  InnerFolderName: Update_3
   JasonFiledata:
-    Phrase: keep calm and carry on
-    EditedPhrase: keep calm and c#rry on
+    Phrase: give me liberty, or give me death!
+    EditedPhrase: gi#e me liberty, or g#ve me de#th!
     Codes:
-    - _char: 107
-      _code: 18
-    - _char: 101
-      _code: 24
-    - _char: 112
-      _code: 9
-    - _char: 99
-      _code: 1
-    - _char: 97
-      _code: 22
-    - _char: 108
-      _code: 6
-    - _char: 109
+    - _char: 103
+      _code: 2
+    - _char: 105
       _code: 19
-    - _char: 110
-      _code: 4
-    - _char: 100
-      _code: 8
+    - _char: 118
+      _code: 1
+    - _char: 101
+      _code: 23
+    - _char: 109
+      _code: 11
+    - _char: 108
+      _code: 12
+    - _char: 98
+      _code: 14
     - _char: 114
-      _code: 13
+      _code: 9
+    - _char: 116
+      _code: 18
     - _char: 121
-      _code: 10
+      _code: 6
     - _char: 111
-      _code: 21
-    States: 00000000000000000000000000000000020000000000000000000000000000000000000002000000000000000000000000000000020000000000000001000000000000000000000000000000020000000000000000000000
-  _jasonfile: {fileID: 4900000, guid: d65826b3955174d1ab9f05147299c559, type: 3}
-  EditedPhrase: keep calm and c#rry on
+      _code: 22
+    - _char: 100
+      _code: 10
+    - _char: 97
+      _code: 24
+    - _char: 104
+      _code: 13
+    States: 00000000000000000100000000000000020000000000000000000000020000000000000000000000000000000000000000000000000000000000000002000000020000000000000000000000020000000000000001000000000000000000000002000000000000000000000002000000000000000000000001000000000000000000000002000000
+  _jasonfile: {fileID: 0}
+  EditedPhrase: gi#e me liberty, or g#ve me de#th!
   fileDataSame: 1
   WrongFilename: 
   testjasondata:
@@ -64146,7 +64073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -190.04929}
+  m_AnchoredPosition: {x: 0, y: -106.24985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284172560
