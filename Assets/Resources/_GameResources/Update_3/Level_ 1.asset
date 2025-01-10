@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15de41204657e49d3808650ca92628a4, type: 3}
   m_Name: Level_ 1
   m_EditorClassIdentifier: 
-  phrase: All that glitters is not gold.
-  autherName: William Shakespeare
+  phrase: No pain, no gain.
+  autherName: Benjamin Franklin
   visibilityPercentage: 90
   singleLockCount: 0
   dualLockCount: 0

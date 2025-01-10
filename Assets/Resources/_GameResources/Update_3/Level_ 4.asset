@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15de41204657e49d3808650ca92628a4, type: 3}
   m_Name: Level_ 4
   m_EditorClassIdentifier: 
-  phrase: All men are created equal.
-  autherName: Thomas Jefferson
+  phrase: United we stand, divided we fall.
+  autherName: Aesop
   visibilityPercentage: 90
   singleLockCount: 0
   dualLockCount: 0

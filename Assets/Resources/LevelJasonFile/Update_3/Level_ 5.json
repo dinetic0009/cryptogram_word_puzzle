@@ -1,62 +1,38 @@
 {
-    "Phrase": "give me liberty, or give me death!",
-    "EditedPhrase": "gi#e me liberty, or g#ve me de#th!",
+    "Phrase": "time is money.",
+    "EditedPhrase": "ti#e is mone#.",
     "Codes": [
         {
-            "_char": 103,
-            "_code": 2
+            "_char": 116,
+            "_code": 10
         },
         {
             "_char": 105,
-            "_code": 19
-        },
-        {
-            "_char": 118,
-            "_code": 1
-        },
-        {
-            "_char": 101,
-            "_code": 23
+            "_code": 21
         },
         {
             "_char": 109,
-            "_code": 11
+            "_code": 2
         },
         {
-            "_char": 108,
-            "_code": 12
+            "_char": 101,
+            "_code": 19
         },
         {
-            "_char": 98,
-            "_code": 14
+            "_char": 115,
+            "_code": 5
         },
         {
-            "_char": 114,
-            "_code": 9
+            "_char": 111,
+            "_code": 20
         },
         {
-            "_char": 116,
+            "_char": 110,
             "_code": 18
         },
         {
             "_char": 121,
-            "_code": 6
-        },
-        {
-            "_char": 111,
-            "_code": 22
-        },
-        {
-            "_char": 100,
-            "_code": 10
-        },
-        {
-            "_char": 97,
-            "_code": 24
-        },
-        {
-            "_char": 104,
-            "_code": 13
+            "_code": 8
         }
     ],
     "States": [
@@ -72,27 +48,7 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        2,
-        2,
-        0,
-        0,
-        2,
-        0,
         1,
-        0,
-        0,
-        2,
-        0,
-        0,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
         2
     ]
 }

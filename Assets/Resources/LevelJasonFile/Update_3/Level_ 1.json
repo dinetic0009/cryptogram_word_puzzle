@@ -1,79 +1,42 @@
 {
-    "Phrase": "all that glitters is not gold.",
-    "EditedPhrase": "all that glitt#rs is not g#ld.",
+    "Phrase": "no pain, no gain.",
+    "EditedPhrase": "no pai#, no g#in.",
     "Codes": [
+        {
+            "_char": 110,
+            "_code": 19
+        },
+        {
+            "_char": 111,
+            "_code": 24
+        },
+        {
+            "_char": 112,
+            "_code": 18
+        },
         {
             "_char": 97,
             "_code": 23
         },
         {
-            "_char": 108,
-            "_code": 5
-        },
-        {
-            "_char": 116,
-            "_code": 11
-        },
-        {
-            "_char": 104,
-            "_code": 1
-        },
-        {
-            "_char": 103,
-            "_code": 6
-        },
-        {
             "_char": 105,
-            "_code": 24
-        },
-        {
-            "_char": 101,
-            "_code": 21
-        },
-        {
-            "_char": 114,
-            "_code": 15
-        },
-        {
-            "_char": 115,
-            "_code": 13
-        },
-        {
-            "_char": 110,
-            "_code": 17
-        },
-        {
-            "_char": 111,
             "_code": 22
         },
         {
-            "_char": 100,
-            "_code": 7
+            "_char": 103,
+            "_code": 12
         }
     ],
     "States": [
         0,
         0,
-        0,
         2,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
         0,
         0,
         0,
         1,
-        0,
-        0,
         2,
-        0,
-        0,
         2,
-        0,
         0,
         0,
         2,

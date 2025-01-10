@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15de41204657e49d3808650ca92628a4, type: 3}
-  m_Name: Level_ 3
+  m_Name: Level_ 6
   m_EditorClassIdentifier: 
-  phrase: Honesty is the best policy.
-  autherName: Benjamin Franklin
+  phrase: All that glitters is not gold.
+  autherName: William Shakespeare
   visibilityPercentage: 90
   singleLockCount: 0
   dualLockCount: 0
