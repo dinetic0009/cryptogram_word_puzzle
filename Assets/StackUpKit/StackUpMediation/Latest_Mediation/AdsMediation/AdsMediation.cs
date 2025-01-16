@@ -668,6 +668,7 @@ public class AdsMediation : MonoBehaviour
                 CountriesAPIData ipApiData = CountriesAPIData.CreateFromJSON(webRequest.downloadHandler.text);
                 Debug.LogError(ipApiData.country_name);
                 //ipApiData.country_name = "Russia";
+
                 if (CountriesAPIData.IsGoogleSupportedCountry(ipApiData.country_name))
                 {
                     InitializeGoogleAds();

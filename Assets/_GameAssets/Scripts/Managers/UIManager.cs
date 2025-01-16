@@ -63,7 +63,7 @@ public class UIManager : Singleton<UIManager>
     /* Adbreak Popup*/
     Coroutine AdBreakCoroutine = null;
     public int DelayForAdBreak;
-    [SerializeField] private int timePassedSinceAd = 0;
+    public int timePassedSinceAd = 0;
     public AdBreakPopup adBreakPopup;
 
     GameMusicData currentClipData;
@@ -353,7 +353,7 @@ public class UIManager : Singleton<UIManager>
 
     public void setupAdBreakCoroutine()
     {
-        timePassedSinceAd = 0;
+        //timePassedSinceAd = 0;
         AdBreakCoroutine = null;
         AdBreakCoroutine = StartCoroutine(CheckAndShowAd());
     }

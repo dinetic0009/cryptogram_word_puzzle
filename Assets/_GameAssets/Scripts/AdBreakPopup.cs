@@ -35,6 +35,7 @@ public class AdBreakPopup : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         AdsMediation.interstitialCallBack += OnInterstitialComplete;
         AdsMediation.instance.ShowInterstial();
+        UIManager.Instance.timePassedSinceAd = 0;
     }
 
     void OnInterstitialComplete()

@@ -1891,7 +1891,7 @@ MonoBehaviour:
   - {r: 0.95686275, g: 0.45490196, b: 0.6509804, a: 1}
   - {r: 0.49019608, g: 0.7058824, b: 0.2784314, a: 1}
   - {r: 0.19215687, g: 0.48235294, b: 0.47058824, a: 1}
-  DelayForAdBreak: 110
+  DelayForAdBreak: 60
   timePassedSinceAd: 0
   adBreakPopup: {fileID: 8235123963856428942}
 --- !u!1 &68740184
@@ -4948,8 +4948,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764470726}
   m_HandleRect: {fileID: 1764470725}
   m_Direction: 2
-  m_Value: -0.00000018495501
-  m_Size: 0.7814538
+  m_Value: -0.0000011097301
+  m_Size: 0.78145695
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -64071,7 +64071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -106.25}
+  m_AnchoredPosition: {x: 0, y: -106.249916}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284172560

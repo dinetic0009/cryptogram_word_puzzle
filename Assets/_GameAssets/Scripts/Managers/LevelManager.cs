@@ -165,6 +165,7 @@ public class LevelManager : Singleton<LevelManager>
         PlayerPrefs.SetInt("LevelInProgress", _levelNoInProgess);
         if (UIManager.Instance.GetTimePassedSinceAd() > 30f)
         {
+            UIManager.Instance.timePassedSinceAd = 0;
             AdsMediation.instance.ShowInterstial();
         }
         UIManager.Instance.stopAdBreakCoroutine();
