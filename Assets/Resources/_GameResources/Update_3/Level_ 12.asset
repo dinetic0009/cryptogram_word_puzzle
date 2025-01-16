@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15de41204657e49d3808650ca92628a4, type: 3}
-  m_Name: Level_ 2
+  m_Name: Level_ 12
   m_EditorClassIdentifier: 
-  phrase: This too shall pass.
-  autherName: William Shakespeare
+  phrase: An apple a day keeps the doctor away
+  autherName: Welsh proverb
   visibilityPercentage: 90
   singleLockCount: 0
   dualLockCount: 0

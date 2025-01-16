@@ -1,0 +1,94 @@
+{
+    "Phrase": "well done is better than well said",
+    "EditedPhrase": "well d#n# is b#tt#r than well sa#d",
+    "Codes": [
+        {
+            "_char": 119,
+            "_code": 16
+        },
+        {
+            "_char": 101,
+            "_code": 21
+        },
+        {
+            "_char": 108,
+            "_code": 8
+        },
+        {
+            "_char": 100,
+            "_code": 10
+        },
+        {
+            "_char": 111,
+            "_code": 24
+        },
+        {
+            "_char": 110,
+            "_code": 12
+        },
+        {
+            "_char": 105,
+            "_code": 22
+        },
+        {
+            "_char": 115,
+            "_code": 5
+        },
+        {
+            "_char": 98,
+            "_code": 9
+        },
+        {
+            "_char": 116,
+            "_code": 15
+        },
+        {
+            "_char": 114,
+            "_code": 19
+        },
+        {
+            "_char": 104,
+            "_code": 14
+        },
+        {
+            "_char": 97,
+            "_code": 20
+        }
+    ],
+    "States": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+    ]
+}

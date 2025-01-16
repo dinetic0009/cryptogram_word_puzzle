@@ -4948,8 +4948,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764470726}
   m_HandleRect: {fileID: 1764470725}
   m_Direction: 2
-  m_Value: -0.000007583156
-  m_Size: 0.7764723
+  m_Value: -0.00000018495501
+  m_Size: 0.7814538
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -50652,40 +50652,42 @@ MonoBehaviour:
     hasStates: 0
     Codes: []
     States: 
-  SourceLevel: {fileID: 11400000, guid: 76f26e8adaf5f4b0987fb5ce74a69958, type: 2}
+  SourceLevel: {fileID: 11400000, guid: 23420097063784c378cb9e1957f4fc18, type: 2}
   MainFolderName: LevelJasonFile
   InnerFolderName: Update_3
   JasonFiledata:
-    Phrase: all that glitters is not gold.
-    EditedPhrase: ti#e is mone#.
+    Phrase: happiness is not by chance, but by choice
+    EditedPhrase: happin#$s is not by ch#$ce, but by ch#ice
     Codes:
+    - _char: 104
+      _code: 17
     - _char: 97
       _code: 20
-    - _char: 108
+    - _char: 112
       _code: 15
-    - _char: 116
-      _code: 5
-    - _char: 104
-      _code: 2
-    - _char: 103
-      _code: 17
     - _char: 105
       _code: 19
-    - _char: 101
-      _code: 23
-    - _char: 114
-      _code: 8
-    - _char: 115
-      _code: 1
     - _char: 110
-      _code: 12
+      _code: 5
+    - _char: 101
+      _code: 22
+    - _char: 115
+      _code: 18
     - _char: 111
+      _code: 23
+    - _char: 116
+      _code: 3
+    - _char: 98
+      _code: 10
+    - _char: 121
+      _code: 14
+    - _char: 99
+      _code: 16
+    - _char: 117
       _code: 21
-    - _char: 100
-      _code: 11
-    States: 0000000000000000010000000000000002000000000000000000000002000000000000000000000000000000000000000100000002000000
-  _jasonfile: {fileID: 4900000, guid: fbe84cd1ea6bf4ef791a1bf8d99a7aaf, type: 3}
-  EditedPhrase: all that gli##ers is not g#ld.
+    States: 0000000000000000000000000000000000000000000000000100000003000000000000000200000000000000000000000200000000000000000000000000000002000000000000000000000002000000000000000000000001000000030000000000000000000000020000000200000000000000000000000000000002000000000000000000000002000000000000000000000001000000000000000000000000000000
+  _jasonfile: {fileID: 4900000, guid: 227a42567b3934773980fe2401b55756, type: 3}
+  EditedPhrase: happin#$s is not by ch#$ce, but by ch#ice
   fileDataSame: 1
   WrongFilename: 
   testjasondata:
@@ -64069,7 +64071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -106.24939}
+  m_AnchoredPosition: {x: 0, y: -106.25}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284172560

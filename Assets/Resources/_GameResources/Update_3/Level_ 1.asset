@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_ 1
   m_EditorClassIdentifier: 
   phrase: No pain, no gain.
-  autherName: Benjamin Franklin
+  autherName: British Government
   visibilityPercentage: 90
   singleLockCount: 0
   dualLockCount: 0
